@@ -1,0 +1,24 @@
+.nav {
+  position: fixed;
+  top: 50px;
+  width: 150px;
+  height: 100%;
+  display: flex;
+  border-right: solid 1px gray;
+  padding-left: 10px;
+}
+
+.categories {
+  width: 100%;
+}
+
+.category {
+  width: 100%;
+  border-bottom: solid 0.5px grey;
+}
+
+.categoryName {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
