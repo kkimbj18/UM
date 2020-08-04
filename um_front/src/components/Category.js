@@ -2,9 +2,11 @@ import React from "react";
 
 function Category({ name }) {
   return (
-    <div className="category">
+    <a href="#" className="category">
       <h6 className="categoryName">{name}</h6>
-    </div>
+      <i className="fas fa-plus"></i>
+      <div className="caption"></div>
+    </a>
   );
 }
 
