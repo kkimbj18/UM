@@ -12,6 +12,6 @@
         <module name="UM_back.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="12" />
+    <bytecodeTargetLevel target="1.8" />
   </component>
 </project>
