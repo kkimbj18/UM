@@ -22,6 +22,7 @@ class Nav extends React.Component {
             return <Category key={index} name={category.name} />;
           })}
         </div>
+        <script src="../function.js"></script>
       </nav>
     );
   }

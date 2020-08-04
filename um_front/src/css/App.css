@@ -6,3 +6,14 @@ a {
 .App {
   display: flex;
 }
+
+main {
+  margin-top: 60px;
+  margin-left: 160px;
+}
+
+.samples {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
