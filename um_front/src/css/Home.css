@@ -1,0 +1,12 @@
+.sample {
+  border: solid 0.5px gray;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.sampleName {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

@@ -19,6 +19,13 @@
   margin-right: 5px;
 }
 
+.headerSearchBtn {
+  padding-right: 3px;
+  padding-left: 3px;
+  border: solid 0.2px white;
+  cursor: pointer;
+}
+
 .headerBtn {
   margin-left: 5px;
   font-size: 10px;
