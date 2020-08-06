@@ -4,9 +4,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+
 @Getter
 @NoArgsConstructor
 public class UserCreateDto {
+    private int userId;
     private String account;
     private String password;
     private String phoneNumber;
@@ -14,7 +16,8 @@ public class UserCreateDto {
     private String name;
 
     @Builder
-    public UserCreateDto(String account, String password, String phoneNumber, String address, String name) {
+    public UserCreateDto(int userId, String account, String password, String phoneNumber, String address, String name) {
+        this.userId = userId;
         this.account = account;
         this.password = password;
         this.phoneNumber = phoneNumber;
