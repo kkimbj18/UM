@@ -1,10 +1,18 @@
 package com.um.domain.user;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @NoArgsConstructor
@@ -28,8 +36,8 @@ public class User implements UserDetails {
     private List<String> role = new ArrayList<>();
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthories() {
-        return nthis.role.stream()
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.role.stream()
             .map(SimpleGrantedAuthority::new)
             .collect(Collectors.toList());
     }
@@ -38,7 +46,7 @@ public class User implements UserDetails {
     private String name;
 
     @Column(length = 11, nullable = false, unique = true)
-    private String phonenumber;
+    private String phoneNumber;
 
     @Column(length = 50, nullable = false)
     private String address;
