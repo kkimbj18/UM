@@ -25,10 +25,10 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
 
-    @Column(length = 20, nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String account;
 
-    @Column(length = 20, nullable = false)
+    @Column(nullable = false)
     private String password;
 
     @ElementCollection(fetch = FetchType.EAGER)
@@ -42,13 +42,13 @@ public class User implements UserDetails {
             .collect(Collectors.toList());
     }
 
-    @Column(length = 20, nullable = false) // unique?
+    @Column(nullable = false)
     private String name;
 
-    @Column(length = 11, nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String phoneNumber;
 
-    @Column(length = 50, nullable = false)
+    @Column(nullable = false)
     private String address;
 
     @Override

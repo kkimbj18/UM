@@ -19,14 +19,8 @@ public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
-    @Override
-    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        return userRepository.findByAccount(name)
-                .orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다."));
-    }
-
     @Transactional
-    public void signUp(UserCreateDto userCreateDto, PasswordEncoder passwordEncoder) {
+    public void join(UserCreateDto userCreateDto, PasswordEncoder passwordEncoder) {
         userRepository.save(User.builder()
                 .userId(userCreateDto.getUserId())
                 .account(userCreateDto.getAccount())
@@ -35,6 +29,13 @@ public class UserService implements UserDetailsService {
                 .address(userCreateDto.getAddress())
                 .name(userCreateDto.getName())
                 .phoneNumber(userCreateDto.getPhoneNumber())
-                .build()).getUserId();
+                .build());
     }
+
+    @Override
+    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
+        return userRepository.findByAccount(name)
+                .orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다."));
+    }
+
 }
