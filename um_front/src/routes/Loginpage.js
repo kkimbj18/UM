@@ -3,6 +3,7 @@ import "../css/Login.css";
 import Loginbtn from "../components/Login"
 import Signupbtn from "../components/Signup"
 import Logo from "../images/kakaoTalk_20200806_202115751.png"
+import {Link} from "react-router-dom";
 
 
 function Login() {
@@ -17,9 +18,9 @@ function Login() {
                 <input className="inputbox" type="text" placeholder="패스워드"></input>
                 <br></br>
                 <Loginbtn />
-                <a href="/signup">
+                <Link to="/signup">
                     <Signupbtn />
-                </a>
+                </Link>
             </div>
         </header>
     );

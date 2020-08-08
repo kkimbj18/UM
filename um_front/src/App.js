@@ -25,8 +25,8 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Route path="/" exact={true} component={Home} />
-        <Route path="/login" exact={ture} component={Login} />
-        <Route path="/signup" exact={ture} component={Signup} />
+        <Route path="/login" exact={true} component={Login} />
+        <Route path="/signup" exact={true} component={Signup} />
         <Route
           path="/my_page"
           exact={true}
