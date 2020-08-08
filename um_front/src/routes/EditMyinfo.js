@@ -1,53 +1,89 @@
 import React from "react";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
-function EditMyinfo() {
-  return (
-    <div class="App">
-      <Header />
-      <Nav />
-      <main>
-        <h1 className="mypage_title">My page</h1>
+class EditMyinfo extends React.Component {
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.post("", {
+        id: event.target.id.value,
+        name: event.target.name.value,
+        address: event.target.address.value,
+        phone: event.target.phone.value,
+      });
+      this.props.history.push("/my_page");
+    } catch {
+      alert("문제가 생겨스빈다.");
+    }
+  };
 
-        <div className="myinfo_title">Edit My info</div>
+  render() {
+    return (
+      <div class="App">
+        {console.log(this.props)}
+        <Header />
+        <Nav page={1} />
+        <main>
+          <Link to="/my_page">
+            <h1 className="mypage_title">My page</h1>
+          </Link>
 
-        <form method="post" action="#">
-          <div className="myinfo_column">
-            <div className="myinfo_name">ID</div>
-            <input type="text" className="myinfo_body" placeholder="ID"></input>
-          </div>
-          <div className="myinfo_column">
-            <div className="myinfo_name">NAME</div>
-            <input
-              type="text"
-              className="myinfo_body"
-              placeholder="Name"
-            ></input>
-          </div>
-          <div className="myinfo_column">
-            <div className="myinfo_name">PHONE NUMBER</div>
-            <input
-              type="text"
-              className="myinfo_body"
-              placeholder="Phone number"
-            ></input>
-          </div>
-          <div className="myinfo_column">
-            <div className="myinfo_name">ADDRESS</div>
-            <input
-              type="text"
-              className="myinfo_body"
-              placeholder="Address"
-            ></input>
-          </div>
-          <input className="Myinfo_btn" type="submit">
-            Submit
-          </input>
-        </form>
-      </main>
-    </div>
-  );
+          <div className="myinfo_title">Edit My info</div>
+
+          <form onSubmit={this.handleSubmit}>
+            <div className="myinfo_column">
+              <label className="myinfo_name">
+                ID
+                <input
+                  type="text"
+                  className="myinfo_body"
+                  placeholder="ID"
+                  name="id"
+                ></input>
+              </label>
+            </div>
+            <div className="myinfo_column">
+              <label className="myinfo_name">
+                NAME
+                <input
+                  type="text"
+                  className="myinfo_body"
+                  placeholder="Name"
+                  name="name"
+                ></input>
+              </label>
+            </div>
+            <div className="myinfo_column">
+              <label className="myinfo_name">
+                PHONE NUMBER
+                <input
+                  type="text"
+                  className="myinfo_body"
+                  placeholder="Phone number"
+                  name="phone"
+                ></input>
+              </label>
+            </div>
+            <div className="myinfo_column">
+              <label className="myinfo_name">
+                ADDRESS
+                <input
+                  type="text"
+                  className="myinfo_body"
+                  placeholder="Address"
+                  name="address"
+                ></input>
+              </label>
+            </div>
+            <input className="Myinfo_btn" type="submit"></input>
+          </form>
+        </main>
+      </div>
+    );
+  }
 }
 
 export default EditMyinfo;

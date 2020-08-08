@@ -8,11 +8,13 @@
   padding-left: 10px;
 }
 
-.categories {
+.categories,
+.options {
   width: 100%;
 }
 
-.category {
+.category,
+.option {
   width: 100%;
   border-bottom: solid 0.5px grey;
   display: flex;
@@ -30,7 +32,8 @@
   margin-right: 5px;
 }
 
-.categoryName {
+.categoryName,
+.optionName {
   margin: 0;
   padding-top: 10px;
   padding-bottom: 10px;
