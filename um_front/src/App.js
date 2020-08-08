@@ -6,6 +6,8 @@ import Login from "./routes/Loginpage";
 import Signup from "./routes/Signuppage";
 import Mypage from "./routes/Mypage";
 import EditMyinfo from "./routes/EditMyinfo";
+import Itemdetail from "./routes/Itemdetail"
+
 
 class App extends React.Component {
   state = {
@@ -24,6 +26,7 @@ class App extends React.Component {
         <Route path="/" exact={true} component={Home} />
         <Route path="/login" exact={true} component={Login} />
         <Route path="/signup" exact={true} component={Signup} />
+        <Route path="/details" exact={true} component={Itemdetail}/>
         <Route
           path="/my_page"
           exact={true}
