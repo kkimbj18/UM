@@ -4,6 +4,13 @@ import Header from "../components/Header";
 import Sample from "../components/Sample";
 import "../css/Home.css";
 
-class detail extends React.Component(){
-    
+function Itemdetail(){
+        return(
+            <div>
+                <Nav></Nav>
+                <Header></Header>
+            </div>
+        );
 }
+
+export default Itemdetail;

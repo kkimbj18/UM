@@ -5,6 +5,9 @@ import { Route, BrowserRouter } from "react-router-dom";
 import Login from "./routes/Loginpage";
 import Signup from "./routes/Signuppage";
 import Mypage from "./routes/Mypage";
+import EditMyinfo from "./routes/EditMyinfo";
+import Itemdetail from "./routes/Itemdetail"
+
 
 class App extends React.Component {
   state = {
@@ -12,12 +15,8 @@ class App extends React.Component {
       id: "hooo0503",
       pwd: "psh0503",
       name: "박상혁",
-      birthYear: 1998,
-      birthMonth: 5,
-      birthDate: 3,
-      email: "hooo0503@gmail.com",
       phone: "010-4062-5986",
-      description: "안녕 난 방상형이야.",
+      address: "아주대학교",
     },
   };
   render() {
@@ -27,11 +26,13 @@ class App extends React.Component {
         <Route path="/" exact={true} component={Home} />
         <Route path="/login" exact={true} component={Login} />
         <Route path="/signup" exact={true} component={Signup} />
+        <Route path="/details" exact={true} component={Itemdetail}/>
         <Route
           path="/my_page"
           exact={true}
           render={() => <Mypage user={user} />}
         />
+        <Route path="/my_page/edit" exact={true} component={EditMyinfo} />
       </BrowserRouter>
     );
   }
