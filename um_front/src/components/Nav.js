@@ -17,12 +17,29 @@ class Nav extends React.Component {
     const { cartegories } = this.state;
     return (
       <nav className="nav">
-        <div className="categories">
-          {cartegories.map((category, index) => {
-            return <Category key={index} name={category.name} />;
-          })}
-        </div>
-        <script src="../function.js"></script>
+        {this.props.page ? (
+          <div className="options">
+            <a href="/my_page">
+              <h4 className="optionTitle">My page</h4>
+            </a>
+            <a href="/my_page" className="option">
+              <h6 className="optionName">내 정보</h6>
+            </a>
+            <a href="#" className="option">
+              <h6 className="optionName">구매 내역</h6>
+            </a>
+            <a href="#" className="option">
+              <h6 className="optionName">리뷰 작성</h6>
+            </a>
+          </div>
+        ) : (
+          <div className="categories">
+            {cartegories.map((category, index) => {
+              return <Category key={index} name={category.name} />;
+            })}
+            <script src="../function.js"></script>
+          </div>
+        )}
       </nav>
     );
   }
