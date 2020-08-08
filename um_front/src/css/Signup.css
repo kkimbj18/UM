@@ -1,0 +1,13 @@
+.signupBoxWrap{
+    display:block;
+    font-family:AppleSDGothicNeo, "Apple SD Gothic Neo", "Apple SD 산돌고딕 Neo", sans-serif;
+    font-size:12px;
+    margin: 0 auto;
+    position:relative;
+    width:420px;
+    padding-top: 30px;
+}
+
+.center{
+    text-align: center;
+}
