@@ -19,9 +19,10 @@ function Header() {
         </a>
       </div>
       <div className="headerColumn">
-        <a href="/login" className="headerBtn">로그인</a>
+        <a href="/login" className="headerBtn">
+          로그인
+        </a>
         <a className="headerBtn">회원가입</a>
-        <a className="headerBtn">비밀번호 찾기</a>
       </div>
     </header>
   );

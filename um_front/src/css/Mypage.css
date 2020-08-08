@@ -1,12 +1,16 @@
-.Mypage_title {
+.mypage_title {
   text-align: center;
 }
 
-.Myinfo_title {
+.myinfo_column {
+  margin-bottom: 10px;
+}
+
+.myinfo_title {
   font-size: 25px;
   margin-bottom: 15px;
 }
 
-.Myinfo_name {
+.myinfo_name {
   font-size: 15px;
 }
