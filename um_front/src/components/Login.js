@@ -10,7 +10,6 @@ class Loginbtn extends React.Component{
             </div>
         );
     }
-   
 }
 
 export default Loginbtn;
