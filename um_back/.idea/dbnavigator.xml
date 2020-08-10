@@ -23,16 +23,12 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="2b034a4d-01bf-4107-a153-08c00d0c4471">
-        <schema name="mysql" object-types="table, view" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="2b034a4d-01bf-4107-a153-08c00d0c4471">
       <console name="um" type="STANDARD" schema="mysql" session="Main" />
-      <console name="um2" type="STANDARD" schema="mysql" session="Main">use summer_project_UM;
+      <console name="um2" type="STANDARD" schema="mysql" session="Main"><![CDATA[use summer_project_UM;
 show variables like 'c%';
 ALTER DATABASE summer_project_UM
 CHARACTER SET = 'utf8mb4'
@@ -47,7 +43,7 @@ CREATE TABLE test (
 
 insert into test(content) values ('테스트');
 
-select * from test;</console>
+select * from test;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
