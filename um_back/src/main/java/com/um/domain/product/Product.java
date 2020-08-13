@@ -1,6 +1,8 @@
 package com.um.domain.product;
 
 import com.um.domain.brand.Brand;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -8,7 +10,9 @@ import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
+@Builder
 @Table(name="product")
 public class Product {
 

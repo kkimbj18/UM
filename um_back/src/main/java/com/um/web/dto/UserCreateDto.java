@@ -17,9 +17,8 @@ public class UserCreateDto
     private String name;
 
     @Builder
-    public UserCreateDto(int userId, String account, String password, String phoneNumber, String address, String name)
+    public UserCreateDto(String account, String password, String phoneNumber, String address, String name)
     {
-        this.userId = userId;
         this.account = account;
         this.password = password;
         this.phoneNumber = phoneNumber;
