@@ -84,6 +84,7 @@ class Home extends React.Component {
   componentDidMount() {
     this.checkUser();
   }
+
   render() {
     const { items, products } = this.state;
     

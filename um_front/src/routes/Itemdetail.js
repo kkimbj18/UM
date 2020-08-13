@@ -35,8 +35,14 @@ class Itemdetail extends React.Component{
                     </div>
                 </main>
             </div>
-        );
-    }
+            <div className="contents-right">
+              <h4 className="title-box">Product info</h4>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
 }
 
 export default Itemdetail;

@@ -38,7 +38,6 @@ class Nav extends React.Component {
             {cartegories.map((category, index) => {
               return <Category key={index} name={category.name} />;
             })}
-            <script src="../function.js"></script>
           </div>
         )}
       </nav>

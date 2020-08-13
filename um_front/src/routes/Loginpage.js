@@ -37,6 +37,7 @@ class Login extends React.Component {
               type="text"
               placeholder="입력해랑"
               name="account"
+              required
             ></input>
             <br></br>
             <input
@@ -44,6 +45,7 @@ class Login extends React.Component {
               type="text"
               placeholder="패스워드"
               name="password"
+              required
             ></input>
             <br></br>
             <Loginbtn />
