@@ -25,8 +25,10 @@ public class ProductController {
     @CrossOrigin
     @PostMapping("/Product/Test")
     public int productTest(@RequestBody ProductCreateDto productCreateDto) {
-        productService.create(productCreateDto);
+        int id;
 
-        return productCreateDto.getProductId();
+        id = productService.create(productCreateDto);
+
+        return id;
     }
 }
