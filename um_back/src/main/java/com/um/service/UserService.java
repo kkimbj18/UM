@@ -22,7 +22,6 @@ public class UserService implements UserDetailsService {
     @Transactional
     public void join(UserCreateDto userCreateDto, PasswordEncoder passwordEncoder) {
         userRepository.save(User.builder()
-                .userId(userCreateDto.getUserId())
                 .account(userCreateDto.getAccount())
                 .password(passwordEncoder.encode(userCreateDto.getPassword()))
                 .role(Collections.singletonList("ROLE_USER")) // 최초 가입시 USER로 설정

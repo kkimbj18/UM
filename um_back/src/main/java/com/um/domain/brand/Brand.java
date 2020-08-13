@@ -23,6 +23,6 @@ public class Brand {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private Image logo;
+    //@Column(nullable = false)
+    //private Image logo;
 }
