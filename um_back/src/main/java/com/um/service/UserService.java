@@ -20,9 +20,8 @@ public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
 
     @Transactional
-    public void join(UserCreateDto userCreateDto, PasswordEncoder passwordEncoder) {
-        userRepository.save(User.builder()
-                .userId(userCreateDto.getUserId())
+    public int join(UserCreateDto userCreateDto, PasswordEncoder passwordEncoder) {
+        User user = userRepository.save(User.builder()
                 .account(userCreateDto.getAccount())
                 .password(passwordEncoder.encode(userCreateDto.getPassword()))
                 .role(Collections.singletonList("ROLE_USER")) // 최초 가입시 USER로 설정
@@ -30,6 +29,8 @@ public class UserService implements UserDetailsService {
                 .name(userCreateDto.getName())
                 .phoneNumber(userCreateDto.getPhoneNumber())
                 .build());
+
+        return user.getUserId();
     }
 
     @Override

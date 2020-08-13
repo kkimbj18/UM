@@ -1,14 +1,7 @@
 import React from "react";
-//window.$ = window.jQuery = jQuery;
 
 class Category extends React.Component {
-  /*
-  componentDidMount() {
-    $(".category").on("click", function () {
-      $(".caption").css("display", "block");
-    });
-  }
-  */
+  
 
   render() {
     return (
