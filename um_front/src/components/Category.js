@@ -1,5 +1,4 @@
 import React from "react";
-import $ from "jquery";
 //window.$ = window.jQuery = jQuery;
 
 class Category extends React.Component {
