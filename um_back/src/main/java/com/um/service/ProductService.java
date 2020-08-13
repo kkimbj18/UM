@@ -14,13 +14,15 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     @Transactional
-    public void create(ProductCreateDto productCreateDto)
+    public int create(ProductCreateDto productCreateDto)
     {
-        productRepository.save(Product.builder()
+        Product product =  productRepository.save(Product.builder()
             .name(productCreateDto.getName())
             .rating(productCreateDto.getRating())
             .category1(productCreateDto.getCategory1())
             .category2(productCreateDto.getCategory2())
             .build());
+
+        return product.getProductId();
     }
 }

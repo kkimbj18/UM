@@ -9,7 +9,6 @@ import lombok.Builder;
 @NoArgsConstructor
 public class UserCreateDto
 {
-    private int userId;
     private String account;
     private String password;
     private String phoneNumber;
