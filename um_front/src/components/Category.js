@@ -1,13 +1,25 @@
 import React from "react";
+import $ from "jquery";
+//window.$ = window.jQuery = jQuery;
 
-function Category({ name }) {
-  return (
-    <a href="#" className="category">
-      <h6 className="categoryName">{name}</h6>
-      <i className="fas fa-plus"></i>
-      <div className="caption"></div>
-    </a>
-  );
+class Category extends React.Component {
+  /*
+  componentDidMount() {
+    $(".category").on("click", function () {
+      $(".caption").css("display", "block");
+    });
+  }
+  */
+
+  render() {
+    return (
+      <div className="category">
+        <h6 className="categoryName">{this.props.name}</h6>
+        <i className="fas fa-plus"></i>
+        <div className="caption"></div>
+      </div>
+    );
+  }
 }
 
 export default Category;

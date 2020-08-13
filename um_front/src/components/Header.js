@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/Header.css";
-import Home from "../routes/Home";
+import { Link } from "react-router-dom";
 
 class Header extends React.Component {
   state = {
@@ -10,36 +10,38 @@ class Header extends React.Component {
     return (
       <header className="header">
         <div className="headerColumn">
-          <a className="headerTitle" href="/">
+          <Link className="headerTitle" to="/">
             <h4>UM</h4>
-          </a>
+          </Link>
           <input
             className="headerSearch"
             placeholder="검색하세오"
             type="text"
           ></input>
-          <a className="headerSearchBtn">
+          <Link to="#" className="headerSearchBtn">
             <i className="fas fa-search"></i>
-          </a>
+          </Link>
         </div>
         {this.state.userAuth ? (
           <div className="headerColumn">
-            <a href="/my_page" className="headerBtn">
+            <Link to="/my_page" className="headerBtn">
               마이페이지
-            </a>
-            <a href="#" className="headerBtn">
+            </Link>
+            <Link to="#" className="headerBtn">
               장바구니
-            </a>
-            <a href="#" className="headerBtn">
+            </Link>
+            <Link to="#" className="headerBtn">
               로그아웃
-            </a>
+            </Link>
           </div>
         ) : (
           <div className="headerColumn">
-            <a href="/login" className="headerBtn">
+            <Link to="/login" className="headerBtn">
               로그인
-            </a>
-            <a className="headerBtn">회원가입</a>
+            </Link>
+            <Link to="/signup" className="headerBtn">
+              회원가입
+            </Link>
           </div>
         )}
       </header>
