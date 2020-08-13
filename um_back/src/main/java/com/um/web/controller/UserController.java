@@ -48,7 +48,7 @@ public class UserController {
     }
     //모든 회원 정보 불러오기
     @CrossOrigin
-    @GetMapping("/check")
+    @GetMapping("/userCheck")
     public List<User> check(){
         return userRepository.findAll();
     }
