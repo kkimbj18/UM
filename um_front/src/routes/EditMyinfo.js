@@ -23,15 +23,14 @@ class EditMyinfo extends React.Component {
   render() {
     return (
       <div class="App">
-        {console.log(this.props)}
         <Header />
         <Nav page={1} />
         <main>
           <Link to="/my_page">
-            <h1 className="mypage_title">My page</h1>
+            <h1 className="mypage_title">마이 페이지</h1>
           </Link>
 
-          <div className="myinfo_title">Edit My info</div>
+          <div className="myinfo_title">내 정보 수정</div>
 
           <form onSubmit={this.handleSubmit}>
             <div className="myinfo_column">
