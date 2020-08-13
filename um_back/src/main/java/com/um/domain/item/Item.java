@@ -1,6 +1,7 @@
 package com.um.domain.item;
 
 import com.um.domain.product.Product;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,9 @@ import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Builder
 @Table(name="item")
 public class Item {
 
