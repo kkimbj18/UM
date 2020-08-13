@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/Nav.css";
 import Category from "./Category";
+import { Link } from "react-router-dom";
 
 class Nav extends React.Component {
   state = {
@@ -19,18 +20,18 @@ class Nav extends React.Component {
       <nav className="nav">
         {this.props.page ? (
           <div className="options">
-            <a href="/my_page">
-              <h4 className="optionTitle">My page</h4>
-            </a>
-            <a href="/my_page" className="option">
+            <Link to="/my_page">
+              <h4 className="optionTitle">마이 페이지</h4>
+            </Link>
+            <Link to="/my_page" className="option">
               <h6 className="optionName">내 정보</h6>
-            </a>
-            <a href="#" className="option">
+            </Link>
+            <Link to="/my_page/purchase_history" className="option">
               <h6 className="optionName">구매 내역</h6>
-            </a>
-            <a href="#" className="option">
+            </Link>
+            <Link to="/my_page/create_review" className="option">
               <h6 className="optionName">리뷰 작성</h6>
-            </a>
+            </Link>
           </div>
         ) : (
           <div className="categories">

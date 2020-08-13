@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 
 function Mypage({ user }) {
   return (
-    <div class="App">
+    <div className="App">
       <Header />
       <Nav page={1} />
       <main>
         <Link to="/my_page">
-          <h1 className="mypage_title">My page</h1>
+          <h1 className="mypage_title">마이 페이지</h1>
         </Link>
 
-        <div className="myinfo_title">My info</div>
+        <div className="myinfo_title">내 정보</div>
         <div className="myinfo_column">
           <div className="myinfo_name">ID</div>
           <div className="myinfo_body">{user.id}</div>

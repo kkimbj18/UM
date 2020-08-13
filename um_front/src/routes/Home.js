@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import Header from "../components/Header";
 import Sample from "../components/Sample";
 import "../css/Home.css";
+import axios from "axios";
 
 class Home extends React.Component {
   state = {
@@ -63,6 +64,22 @@ class Home extends React.Component {
       },
     ],
   };
+
+  checkUser = async () => {
+    try {
+      const check = await axios.get(
+        "http://ec2-3-34-81-212.ap-northeast-2.compute.amazonaws.com:8080/check"
+      );
+      console.log(check);
+    } catch (error) {
+      console.log(error);
+      alert("문제가 생겨스빈다.");
+    }
+  };
+
+  componentDidMount() {
+    this.checkUser();
+  }
   render() {
     const { items } = this.state;
     return (
