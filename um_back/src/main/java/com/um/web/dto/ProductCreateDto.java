@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class ProductCreateDto {
-    private int productId;
     private String name;
     private short rating;
     private String category1;
