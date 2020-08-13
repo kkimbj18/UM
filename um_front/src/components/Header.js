@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 class Header extends React.Component {
   state = {
-    userAuth: 0,
+    userAuth: 1,
   };
   render() {
     return (
