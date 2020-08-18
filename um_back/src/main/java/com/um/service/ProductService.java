@@ -23,6 +23,7 @@ public class ProductService {
             .name(productCreateDto.getName())
             .category1(productCreateDto.getCategory1())
             .category2(productCreateDto.getCategory2())
+            .price(productCreateDto.getPrice())
             .build());
 
         return product.getProductId();
@@ -37,7 +38,7 @@ public class ProductService {
             if(product.getName().contains(name)) {
                 response.add(ProductResponseDto.builder()
                         .productId(product.getProductId())
-                        /*.brandId(product.getBrandId())*/
+                        .brandId(product.getBrandId())
                         .name(product.getName())
                         .rating(product.getRating())
                         .category1(product.getCategory1())

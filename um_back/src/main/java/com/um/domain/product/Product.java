@@ -20,11 +20,11 @@ public class Product {
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productId;
-/*
+
     @ManyToOne
     @JoinColumn(name = "brand_id")
     private Brand brandId;
-*/
+
 
     @Column(nullable = false)
     private String name;
@@ -41,5 +41,18 @@ public class Product {
     @Column()
     private int soldAmount;
 
-    /*public int getBrandId(){ return brandId.getBrandId(); }*/
+    @Column(nullable = false)
+    private int price;
+
+    /*
+    @lob
+    @Column
+    private thumbnail;
+
+    @lob
+    @Column
+    private descriptionImage;
+     */
+
+    public int getBrandId(){ return brandId.getBrandId(); }
 }
