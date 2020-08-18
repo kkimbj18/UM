@@ -35,8 +35,8 @@ class Itemdetail extends React.Component{
                     </div>
                 </main>
             </div>
-    );
-  }
+        );
+    }
 }
 
 export default Itemdetail;
