@@ -1,13 +1,19 @@
 package com.um.domain.brand;
 
 import com.um.domain.user.User;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.awt.*;
 
+@Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Builder
 @Table(name="brand")
 public class Brand {
 

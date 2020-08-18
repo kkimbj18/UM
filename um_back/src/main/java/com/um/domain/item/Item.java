@@ -31,8 +31,14 @@ public class Item {
     private String color;
 
     @Column(nullable = false)
-    private int prize;
+    private int extraPrice;
 
     @Column(nullable = false)
     private int remain;
+
+    /*
+    @lob
+    @column
+    private Clob image;
+     */
 }

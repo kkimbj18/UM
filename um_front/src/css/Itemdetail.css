@@ -41,9 +41,11 @@
   margin: 0 auto;
 }
 
-.product-explain {
-  border-top: solid 1px #ddd;
-  border-bottom: solid 1px #ddd;
+
+.product-explain{
+    padding-top: 10px;
+    border-top: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
 }
 
 .exclusive-info-name {
