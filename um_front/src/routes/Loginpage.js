@@ -10,14 +10,14 @@ class Login extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(
+      const current_user = await axios.post(
         "http://ec2-3-34-81-212.ap-northeast-2.compute.amazonaws.com:8080/login",
         {
           account: event.target.account.value,
           password: event.target.password.value,
         }
       );
-      this.props.history.push("/");
+      this.props.history.push("/", { current_user: current_user });
     } catch (error) {
       console.log(error);
       alert("문제가 생겨스빈다.");

@@ -9,7 +9,6 @@
   height: 50px;
 }
 
-
 .item_category {
   height: 50px;
   border: none;
@@ -37,12 +36,11 @@
   padding-left: 10px;
 }
 
-
-.title-box{
-    line-height: 12px;
-    margin: 0 auto;
-    
+.title-box {
+  line-height: 12px;
+  margin: 0 auto;
 }
+
 
 .product-explain{
     padding-top: 10px;
@@ -50,8 +48,7 @@
     border-bottom: solid 1px #ddd;
 }
 
-.exclusive-info-name{
-    margin-top: 0;
-    margin-bottom: 5px;
+.exclusive-info-name {
+  margin-top: 0;
+  margin-bottom: 5px;
 }
-
