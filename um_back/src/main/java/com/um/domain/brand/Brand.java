@@ -23,8 +23,8 @@ public class Brand {
     private int brandId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User userId;
+    @JoinColumn(name = "userId")
+    private User user;
 
     @Column(nullable = false)
     private String name;
