@@ -23,7 +23,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="6d90335e-413b-4094-b088-181f24e3a93f">
+        <schema name="mysql" object-types="view, table, function" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="6d90335e-413b-4094-b088-181f24e3a93f">
@@ -31,7 +35,82 @@
 
 show tables;
 
-DESC user;]]></console>
+select * from user;
+
+DESC user;
+
+DESC brand;
+
+CREATE TABLE item(
+    id int(20) NOT NULL AUTO_INCREMENT,
+    product_id int(20) NOT NULL ,
+    size int(20),
+    color varchar(20),
+    extraPrice int(20),
+    remain int(20),
+    image varchar(20),
+    PRIMARY KEY (id),
+    FOREIGN KEY (product_id) REFERENCES product(id)
+) ENGINE = InnoDB;
+
+CREATE TABLE brand(
+    id int(20) NOT NULL AUTO_INCREMENT,
+    user_id int(20) NOT NULL ,
+    name varchar(20),
+    logo varchar(20),
+    PRIMARY KEY (id)
+) ENGINE = InnoDB;
+
+CREATE TABLE product(
+    id int(20) NOT NULL AUTO_INCREMENT,
+    brand_id int(20) NOT NULL ,
+    name varchar(20),
+    soldAmount int(20),
+    category1 varchar(20),
+    category2 varchar(20),
+    price int(20),
+    thumbnail varchar(20),
+    descrpition_image varchar(20),
+    PRIMARY KEY (id),
+    FOREIGN KEY (brand_id) REFERENCES brand(id)
+) ENGINE = InnoDB;
+
+ALTER TABLE brand add foreign key (user_id) REFERENCES user(id);
+
+CREATE TABLE line_item(
+    id int(20) NOT NULL AUTO_INCREMENT,
+    order_id int(20) NOT NULL ,
+    item_id int(20) NOT NULL,
+    quantity int(20),
+    total_price int(20),
+    PRIMARY KEY (id),
+    FOREIGN KEY (order_id) REFERENCES user_order(id),
+    FOREIGN KEY (item_id) REFERENCES item(id)    
+) ENGINE = InnoDB;
+
+CREATE TABLE user_order(
+    id int(20) NOT NULL AUTO_INCREMENT,
+    user_id int(20) NOT NULL ,
+    status varchar(20),
+    name varchar(20),
+    address varchar(20),
+    phoneNumber varchar(20),
+    date varchar(20),
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES user(id)
+) ENGINE = InnoDB;
+
+CREATE TABLE review(
+    id int(20) NOT NULL AUTO_INCREMENT,
+    user_id int(20) NOT NULL ,
+    item_id int(20) NOT NULL ,
+    content varchar(20),
+    rating int(20),
+    photo varchar(20),
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (item_id) REFERENCES item(id)
+) ENGINE = InnoDB;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
