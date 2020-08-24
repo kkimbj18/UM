@@ -23,10 +23,103 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="6d90335e-413b-4094-b088-181f24e3a93f">
+        <schema name="mysql" object-types="view, table, function" />
+      </connection>
+    </loaded-nodes>
+  </component>
+  <component name="DBNavigator.Project.DatabaseConsoleManager">
+    <connection id="6d90335e-413b-4094-b088-181f24e3a93f">
+      <console name="Connection" type="STANDARD" schema="mysql" session="Main"><![CDATA[use summer_project_UM;
+
+show tables;
+
+select * from user;
+
+DESC user;
+
+DESC brand;
+
+CREATE TABLE item(
+    id int(20) NOT NULL AUTO_INCREMENT,
+    product_id int(20) NOT NULL ,
+    size int(20),
+    color varchar(20),
+    extraPrice int(20),
+    remain int(20),
+    image varchar(20),
+    PRIMARY KEY (id),
+    FOREIGN KEY (product_id) REFERENCES product(id)
+) ENGINE = InnoDB;
+
+CREATE TABLE brand(
+    id int(20) NOT NULL AUTO_INCREMENT,
+    user_id int(20) NOT NULL ,
+    name varchar(20),
+    logo varchar(20),
+    PRIMARY KEY (id)
+) ENGINE = InnoDB;
+
+CREATE TABLE product(
+    id int(20) NOT NULL AUTO_INCREMENT,
+    brand_id int(20) NOT NULL ,
+    name varchar(20),
+    soldAmount int(20),
+    category1 varchar(20),
+    category2 varchar(20),
+    price int(20),
+    thumbnail varchar(20),
+    descrpition_image varchar(20),
+    PRIMARY KEY (id),
+    FOREIGN KEY (brand_id) REFERENCES brand(id)
+) ENGINE = InnoDB;
+
+ALTER TABLE brand add foreign key (user_id) REFERENCES user(id);
+
+CREATE TABLE line_item(
+    id int(20) NOT NULL AUTO_INCREMENT,
+    order_id int(20) NOT NULL ,
+    item_id int(20) NOT NULL,
+    quantity int(20),
+    total_price int(20),
+    PRIMARY KEY (id),
+    FOREIGN KEY (order_id) REFERENCES user_order(id),
+    FOREIGN KEY (item_id) REFERENCES item(id)    
+) ENGINE = InnoDB;
+
+CREATE TABLE user_order(
+    id int(20) NOT NULL AUTO_INCREMENT,
+    user_id int(20) NOT NULL ,
+    status varchar(20),
+    name varchar(20),
+    address varchar(20),
+    phoneNumber varchar(20),
+    date varchar(20),
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES user(id)
+) ENGINE = InnoDB;
+
+CREATE TABLE review(
+    id int(20) NOT NULL AUTO_INCREMENT,
+    user_id int(20) NOT NULL ,
+    item_id int(20) NOT NULL ,
+    content varchar(20),
+    rating int(20),
+    photo varchar(20),
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (item_id) REFERENCES item(id)
+) ENGINE = InnoDB;
+
+ALTER TABLE user MODIFY COLUMN password varchar(200);]]></console>
+    </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
+  </component>
+  <component name="DBNavigator.Project.DatabaseSessionManager">
+    <connection id="6d90335e-413b-4094-b088-181f24e3a93f" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -50,7 +143,91 @@
     <recently-used-interfaces />
   </component>
   <component name="DBNavigator.Project.Settings">
-    <connections />
+    <connections>
+      <connection id="6d90335e-413b-4094-b088-181f24e3a93f" active="true">
+        <database>
+          <name value="Connection" />
+          <description value="" />
+          <database-type value="MYSQL" />
+          <config-type value="BASIC" />
+          <database-version value="5.5" />
+          <driver-source value="BUILTIN" />
+          <driver-library value="" />
+          <driver value="" />
+          <url-type value="DATABASE" />
+          <host value="summer-project-um.cy0msbsenyar.ap-northeast-2.rds.amazonaws.com" />
+          <port value="3306" />
+          <database value="mysql" />
+          <type value="USER_PASSWORD" />
+          <user value="junghun" />
+          <deprecated-pwd value="IVdqZGduczEwMTM=" />
+        </database>
+        <properties>
+          <auto-commit value="false" />
+        </properties>
+        <ssh-settings>
+          <active value="false" />
+          <proxy-host value="" />
+          <proxy-port value="22" />
+          <proxy-user value="" />
+          <deprecated-proxy-pwd value="" />
+          <auth-type value="PASSWORD" />
+          <key-file value="" />
+          <key-passphrase value="" />
+        </ssh-settings>
+        <ssl-settings>
+          <active value="false" />
+          <certificate-authority-file value="" />
+          <client-certificate-file value="" />
+          <client-key-file value="" />
+        </ssl-settings>
+        <details>
+          <charset value="UTF-8" />
+          <session-management value="true" />
+          <ddl-file-binding value="true" />
+          <database-logging value="false" />
+          <connect-automatically value="true" />
+          <restore-workspace value="true" />
+          <restore-workspace-deep value="true" />
+          <environment-type value="default" />
+          <idle-time-to-disconnect value="30" />
+          <idle-time-to-disconnect-pool value="5" />
+          <credential-expiry-time value="10" />
+          <max-connection-pool-size value="7" />
+          <alternative-statement-delimiter value="" />
+        </details>
+        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false">
+          <object-type-filter use-master-settings="true">
+            <object-type name="SCHEMA" enabled="true" />
+            <object-type name="USER" enabled="true" />
+            <object-type name="ROLE" enabled="true" />
+            <object-type name="PRIVILEGE" enabled="true" />
+            <object-type name="CHARSET" enabled="true" />
+            <object-type name="TABLE" enabled="true" />
+            <object-type name="VIEW" enabled="true" />
+            <object-type name="MATERIALIZED_VIEW" enabled="true" />
+            <object-type name="NESTED_TABLE" enabled="true" />
+            <object-type name="COLUMN" enabled="true" />
+            <object-type name="INDEX" enabled="true" />
+            <object-type name="CONSTRAINT" enabled="true" />
+            <object-type name="DATASET_TRIGGER" enabled="true" />
+            <object-type name="DATABASE_TRIGGER" enabled="true" />
+            <object-type name="SYNONYM" enabled="true" />
+            <object-type name="SEQUENCE" enabled="true" />
+            <object-type name="PROCEDURE" enabled="true" />
+            <object-type name="FUNCTION" enabled="true" />
+            <object-type name="PACKAGE" enabled="true" />
+            <object-type name="TYPE" enabled="true" />
+            <object-type name="TYPE_ATTRIBUTE" enabled="true" />
+            <object-type name="ARGUMENT" enabled="true" />
+            <object-type name="DIMENSION" enabled="true" />
+            <object-type name="CLUSTER" enabled="true" />
+            <object-type name="DBLINK" enabled="true" />
+          </object-type-filter>
+          <object-name-filters />
+        </object-filters>
+      </connection>
+    </connections>
     <browser-settings>
       <general>
         <display-mode value="TABBED" />

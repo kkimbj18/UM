@@ -22,9 +22,9 @@ public class Brand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int brandId;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id")
-    private User userId;
+    private User user;
 
     @Column(nullable = false)
     private String name;
