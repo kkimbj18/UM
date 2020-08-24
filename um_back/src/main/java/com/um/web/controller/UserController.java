@@ -34,17 +34,15 @@ public class UserController {
     @CrossOrigin
     @PostMapping("/signup")
     public int join(@RequestBody UserCreateDto userCreateDto) {
-        int id;
 
         Optional<User> searchMember = userRepository.findByAccount(userCreateDto.getAccount());
 
         if(!searchMember.isPresent())
-            id = userService.join(userCreateDto, passwordEncoder);
+            return userService.join(userCreateDto, passwordEncoder);
         else
             throw new IllegalArgumentException("이미 가입된 계정입니다.");
 
         //userService.join(userCreateDto, passwordEncoder);
-        return id;
     }
     //모든 회원 정보 불러오기
     @CrossOrigin

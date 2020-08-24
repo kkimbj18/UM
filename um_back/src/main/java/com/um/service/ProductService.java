@@ -29,7 +29,7 @@ public class ProductService {
         return product.getProductId();
     }
     @Transactional
-    public List<ProductResponseDto> getFindByName(String name)
+    public List<ProductResponseDto> findByName(String name)
     {
         List<Product> productList = productRepository.findAll();
         List<ProductResponseDto> response = new ArrayList<ProductResponseDto>();
@@ -40,6 +40,7 @@ public class ProductService {
                         .productId(product.getProductId())
                         .brandId(product.getBrandId())
                         .name(product.getName())
+                        .price(product.getPrice())
                         .rating(product.getRating())
                         .category1(product.getCategory1())
                         .category2(product.getCategory2())
@@ -47,6 +48,80 @@ public class ProductService {
             }
         }
 
+        return response;
+    }
+    @Transactional
+    public List<ProductResponseDto> findByFilter(String category1)
+    {
+        List<Product> productList = productRepository.findAll();
+        List<ProductResponseDto> response = new ArrayList<>();
+
+        for(Product product : productList) {
+            if (product.getCategory1().equals(category1)) {
+                response.add(ProductResponseDto.builder()
+                        .productId(product.getProductId())
+                        .brandId(product.getBrandId())
+                        .name(product.getName())
+                        .price(product.getPrice())
+                        .rating(product.getRating())
+                        .category1(product.getCategory1())
+                        .category2(product.getCategory2())
+                        .build());
+            }
+        }
+
+        return response;
+    }
+    @Transactional
+    public List<ProductResponseDto> findBySubFilter(String category2)
+    {
+        List<Product> productList = productRepository.findAll();
+        List<ProductResponseDto> response = new ArrayList<>();
+
+        for(Product product : productList) {
+            if (product.getCategory2().equals(category2)) {
+                response.add(ProductResponseDto.builder()
+                        .productId(product.getProductId())
+                        .brandId(product.getBrandId())
+                        .name(product.getName())
+                        .price(product.getPrice())
+                        .rating(product.getRating())
+                        .category1(product.getCategory1())
+                        .category2(product.getCategory2())
+                        .build());
+            }
+        }
+
+        return response;
+    }
+    @Transactional
+    public List<ProductResponseDto> findByPrice(int price)
+    {
+        int cnt = 0;
+        int temp[] = {10000, 20000, 30000, 50000, 100000, 200000, 300000, 9999999};
+
+        for(int i : temp){
+            cnt++;
+            if(price == i) break;
+        }
+
+        List<Product> productList = productRepository.findAll();
+        List<ProductResponseDto> response = new ArrayList<>();
+
+        for(Product product : productList) {
+            if(product.getPrice() < temp[cnt] && product.getPrice() >= price)
+            {
+                response.add(ProductResponseDto.builder()
+                        .productId(product.getProductId())
+                        .brandId(product.getBrandId())
+                        .name(product.getName())
+                        .price(product.getPrice())
+                        .rating(product.getRating())
+                        .category1(product.getCategory1())
+                        .category2(product.getCategory2())
+                        .build());
+            }
+        }
         return response;
     }
 }

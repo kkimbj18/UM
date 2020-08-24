@@ -22,7 +22,7 @@ public class Item {
 
     @ManyToOne
     @JoinColumn(name="product_id")
-    private Product productId;
+    private Product product;
 
     @Column(nullable = false)
     private int size;
