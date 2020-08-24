@@ -77,4 +77,14 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public void updateProfile(String address,String phoneNumber)
+    {
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+    }
+    public void updatePassword(String password)
+    {
+        this.password = password;
+    }
 }

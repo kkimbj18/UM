@@ -6,6 +6,8 @@ import com.um.domain.user.UserRepository;
 import com.um.service.UserService;
 import com.um.web.dto.UserCreateDto;
 import com.um.web.dto.UserLoginDto;
+import com.um.web.dto.UserProfileUpdateDto;
+import com.um.web.dto.UserResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -22,13 +24,22 @@ public class UserController {
     private final UserRepository userRepository;
     private final UserService userService;
 
-    //테스트
+    //프로필 확인
     @CrossOrigin
-    @PostMapping("/test")
-    public boolean test(@RequestBody UserCreateDto userCreateDto) {
-        Optional<User> searchMember = userRepository.findByAccount(userCreateDto.getAccount());
-
-        return searchMember.isPresent();
+    @GetMapping("/profile")
+    public UserResponseDto getProfile(@RequestParam("userId") int userId) {
+        return userService.getProfile(userId);
+    }
+    @CrossOrigin
+    @PutMapping("/profile/update/password")
+    public String updatePassword(@RequestParam("userId") int userId ,String password){
+        return userService.updatePassword(userId,password,passwordEncoder);
+    }
+    @CrossOrigin
+    @PutMapping("/profile/update")
+    public String updateProfile(@RequestBody UserProfileUpdateDto userProfileUpdateDto)
+    {
+        return userService.updateProfile(userProfileUpdateDto);
     }
     //회원가입
     @CrossOrigin
