@@ -1,5 +1,6 @@
 import React from "react";
 import LineItem from "./LineItem";
+import "../css/Order.css";
 
 class Order extends React.Component {
   state = {
