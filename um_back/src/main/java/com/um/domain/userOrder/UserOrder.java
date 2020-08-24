@@ -1,4 +1,4 @@
-package com.um.domain.Order;
+package com.um.domain.userOrder;
 
 import com.um.domain.user.User;
 import lombok.AllArgsConstructor;
@@ -13,8 +13,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "order")
-public class Order {
+@Table(name = "userOrder")
+public class UserOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId;

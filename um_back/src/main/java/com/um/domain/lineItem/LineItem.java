@@ -1,6 +1,6 @@
 package com.um.domain.lineItem;
 
-import com.um.domain.Order.Order;
+import com.um.domain.userOrder.UserOrder;
 import com.um.domain.item.Item;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,7 +23,7 @@ public class LineItem {
 
     @ManyToOne
     @JoinColumn(name = "orderId")
-    private Order order;
+    private UserOrder order;
 
     @ManyToOne
     @JoinColumn(name = "itemId")
