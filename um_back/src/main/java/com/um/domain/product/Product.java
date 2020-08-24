@@ -56,3 +56,4 @@ public class Product {
 
     public int getBrandId(){ return brand.getBrandId(); }
 }
+
