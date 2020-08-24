@@ -80,8 +80,45 @@ export const brand =[
     },
 ];
 
-export const lineitem =[];
+export const brand = [
+  {
+    brandId: "1",
+    userId: "1",
+    name: "나이키",
+    logo:
+      "https://w7.pngwing.com/pngs/725/894/png-transparent-jumpman-nike-free-swoosh-nike-angle-triangle-logo.png",
+  },
+  {
+    brandId: "2",
+    userId: "2",
+    name: "엄준식",
+    logo: "/images/um",
+  },
+  {
+    brandId: "3",
+    userId: "3",
+    name: "아디다스",
+    logo:
+      "https://w7.pngwing.com/pngs/154/670/png-transparent-adidas-originals-logo-brand-adidas-text-logo-adidas.png",
+  },
+];
 
-export const order =[];
+export const lineItem = [
+  { id: 1, orderId: 1, itemId: 1, quantity: 1, totalPrice: 15000 },
+  { id: 2, orderId: 1, itemId: 2, quantity: 1, totalPrice: 15000 },
+  { id: 3, orderId: 1, itemId: 3, quantity: 1, totalPrice: 15000 },
+];
 
-export const review =[];
+export const order = [
+  {
+    id: 1,
+    userId: 1,
+    status: 0,
+    name: null,
+    address: null,
+    phoneNumber: null,
+    date: null,
+  },
+];
+
+export const review = [];
