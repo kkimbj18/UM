@@ -1,9 +1,11 @@
+import Logo from "./images/kakaoTalk_20200806_202115751.png";
+
 export const product = [
     {
         id: 1,
-        brandid: 1,
+        brandId: 1,
         name: "엄",
-        rating: 3.5,
+        rating: 60,
         soldAmount: 423,
         category_1: "엄준식",
         category_2: "아무무",
@@ -12,9 +14,9 @@ export const product = [
     },
     {
         id: 2,
-        brandid: 1,
+        brandId: 1,
         name: "준",
-        rating: 4.0,
+        rating: 35,
         soldAmount: 333,
         category_1: "엄준식",
         category_2: "아무무",
@@ -23,9 +25,9 @@ export const product = [
     },
     {
         id: 3,
-        brandid: 1,
+        brandId: 1,
         name: "식",
-        rating: 4.2,
+        rating: 89,
         soldAmount: 1928,
         category_1: "엄준식",
         category_2: "아무무",
@@ -61,28 +63,64 @@ export const item = [
 
 export const brand =[
     {
-        brandID: "1",
-        userID: "1",
+        id: 1,
+        userID: 1,
         name: "나이키",
         logo: "https://w7.pngwing.com/pngs/725/894/png-transparent-jumpman-nike-free-swoosh-nike-angle-triangle-logo.png",
     },
     {
-        brandID: "2",
-        userID: "2",
+        id: 2,
+        userID: 2,
         name: "엄준식",
-        logo: "/images/um",
+        logo: Logo,
     },
     {
-        brandID: "3",
-        userID: "3",
+        id: 3,
+        userID: 3,
         name: "아디다스",
         logo: "https://w7.pngwing.com/pngs/154/670/png-transparent-adidas-originals-logo-brand-adidas-text-logo-adidas.png",
     },
 ];
 
-export const lineitem =[];
+export const brand = [
+  {
+    brandId: "1",
+    userId: "1",
+    name: "나이키",
+    logo:
+      "https://w7.pngwing.com/pngs/725/894/png-transparent-jumpman-nike-free-swoosh-nike-angle-triangle-logo.png",
+  },
+  {
+    brandId: "2",
+    userId: "2",
+    name: "엄준식",
+    logo: "/images/um",
+  },
+  {
+    brandId: "3",
+    userId: "3",
+    name: "아디다스",
+    logo:
+      "https://w7.pngwing.com/pngs/154/670/png-transparent-adidas-originals-logo-brand-adidas-text-logo-adidas.png",
+  },
+];
 
-export const order =[];
+export const lineItem = [
+  { id: 1, orderId: 1, itemId: 1, quantity: 1, totalPrice: 15000 },
+  { id: 2, orderId: 1, itemId: 2, quantity: 1, totalPrice: 15000 },
+  { id: 3, orderId: 1, itemId: 3, quantity: 1, totalPrice: 15000 },
+];
 
-export const review =[];
+export const order = [
+  {
+    id: 1,
+    userId: 1,
+    status: 0,
+    name: null,
+    address: null,
+    phoneNumber: null,
+    date: null,
+  },
+];
 
+export const review = [];

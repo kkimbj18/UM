@@ -22,7 +22,7 @@ public class Product {
     private int productId;
 
     @ManyToOne
-    @JoinColumn(name = "brandId")
+    @JoinColumn(name = "brand_id")
     private Brand brand;
 
 
@@ -56,3 +56,4 @@ public class Product {
 
     public int getBrandId(){ return brand.getBrandId(); }
 }
+
