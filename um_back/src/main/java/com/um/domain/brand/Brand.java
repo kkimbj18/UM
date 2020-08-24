@@ -22,8 +22,8 @@ public class Brand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int brandId;
 
-    @ManyToOne
-    @JoinColumn(name = "userId")
+    @OneToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Column(nullable = false)

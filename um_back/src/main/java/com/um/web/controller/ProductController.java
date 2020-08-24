@@ -21,18 +21,38 @@ public class ProductController {
     @CrossOrigin
     @GetMapping("/search/{name}")
     public List<ProductResponseDto> searchByName(@PathVariable("name") String name)throws SQLException {
-        return productService.getFindByName(name);
+
+        return productService.findByName(name);
     }
+
     @CrossOrigin
     @PostMapping("/Product/Test")
     public int productTest(@RequestBody ProductCreateDto productCreateDto) {
-        int id = productService.create(productCreateDto);
 
-        return id;
+        return productService.create(productCreateDto);
     }
+
     @CrossOrigin
     @GetMapping("/productCheck")
     public List<Product> check(){
         return productRepository.findAll();
+    }
+
+    @CrossOrigin
+    @GetMapping("/search/filter/{category1}")
+    public List<ProductResponseDto> searchByFilter(@PathVariable("category1") String category1)throws SQLException {
+        return productService.findByFilter(category1);
+    }
+
+    @CrossOrigin
+    @GetMapping("/search/filter/sub/{category2}")
+    public List<ProductResponseDto> searchBySubFilter(@PathVariable("category2") String category2)throws SQLException {
+        return productService.findBySubFilter(category2);
+    }
+
+    @CrossOrigin
+    @GetMapping("/search/price/{price}")
+    public List<ProductResponseDto> searchByCost(@PathVariable("price") int price) throws SQLException {
+        return productService.findByPrice(price);
     }
 }

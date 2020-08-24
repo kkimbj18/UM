@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+
 @Getter
 @NoArgsConstructor
 public class ProductCreateDto {
@@ -14,8 +15,7 @@ public class ProductCreateDto {
     private int price;
 
     @Builder
-    public ProductCreateDto(String name, int brandId, String category1, String category2, int price)
-    {
+    public ProductCreateDto(String name, int brandId, String category1, String category2, int price){
         this.name = name;
         this.brandId = brandId;
         this.category1 = category1;
