@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 class Header extends React.Component {
   state = {
-    userAuth: 1,
+    isUserAuth: this.props.isUserAuth,
   };
   render() {
     return (
@@ -22,7 +22,7 @@ class Header extends React.Component {
             <i className="fas fa-search"></i>
           </Link>
         </div>
-        {this.state.userAuth ? (
+        {this.state.isUserAuth ? (
           <div className="headerColumn">
             <Link to="/my_page" className="headerBtn">
               마이페이지

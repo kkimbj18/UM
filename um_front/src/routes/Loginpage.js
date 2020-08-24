@@ -10,14 +10,20 @@ class Login extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const current_user = await axios.post(
-        "http://ec2-3-34-81-212.ap-northeast-2.compute.amazonaws.com:8080/login",
-        {
-          account: event.target.account.value,
-          password: event.target.password.value,
-        }
-      );
-      this.props.history.push("/", { current_user: current_user });
+      const current_user = await axios
+        .post(
+          "http://ec2-3-34-81-212.ap-northeast-2.compute.amazonaws.com:8080/login",
+          {
+            account: event.target.account.value,
+            password: event.target.password.value,
+          }
+        )
+        .then((response) => {
+          this.props.history.push({
+            pathname: "/",
+            state: { current_user: response.data },
+          });
+        });
     } catch (error) {
       console.log(error);
       alert("문제가 생겨스빈다.");
@@ -42,7 +48,7 @@ class Login extends React.Component {
             <br></br>
             <input
               className="inputbox"
-              type="text"
+              type="password"
               placeholder="패스워드"
               name="password"
               required
