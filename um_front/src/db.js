@@ -1,9 +1,11 @@
+import Logo from "./images/kakaoTalk_20200806_202115751.png";
+
 export const product = [
     {
         id: 1,
         brandId: 1,
         name: "엄",
-        rating: 3.5,
+        rating: 80,
         soldAmount: 423,
         category_1: "엄준식",
         category_2: "아무무",
@@ -12,9 +14,9 @@ export const product = [
     },
     {
         id: 2,
-        brandId: 1,
+        brandId: 2,
         name: "준",
-        rating: 4.0,
+        rating: 70,
         soldAmount: 333,
         category_1: "엄준식",
         category_2: "아무무",
@@ -23,9 +25,9 @@ export const product = [
     },
     {
         id: 3,
-        brandId: 1,
+        brandId: 3,
         name: "식",
-        rating: 4.2,
+        rating: 35,
         soldAmount: 1928,
         category_1: "엄준식",
         category_2: "아무무",
@@ -70,7 +72,7 @@ export const brand =[
         id: 2,
         userID: 2,
         name: "엄준식",
-        logo: "./images/um.png",
+        logo: Logo,
     },
     {
         id: 3,
