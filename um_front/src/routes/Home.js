@@ -10,10 +10,11 @@ class Home extends React.Component {
 
   checkUser = async () => {
     try {
-      const check = await axios.get(
-        "http://ec2-3-34-81-212.ap-northeast-2.compute.amazonaws.com:8080/check"
+      const userCheck = await axios.get(
+        "http://ec2-3-34-81-212.ap-northeast-2.compute.amazonaws.com:8080/userCheck"
       );
-      console.log(check);
+      console.log(userCheck);
+      console.log(this.props);
     } catch (error) {
       console.log(error);
       alert("문제가 생겨스빈다.");
@@ -43,12 +44,7 @@ class Home extends React.Component {
         <main className="main">
           <div className="samples">
             {products.map((products, index) => {
-              return (
-                <Sample
-                  key={index}
-                  product={products}
-                />
-              );
+              return <Sample key={index} product={products} />;
             })}
           </div>
         </main>
