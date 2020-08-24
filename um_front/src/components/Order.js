@@ -1,20 +1,17 @@
 import React from "react";
 import LineItem from "./LineItem";
 import "../css/Order.css";
+import { lineItem } from "../db";
 
 class Order extends React.Component {
   state = {
-    lineItems: [
-      { id: 1, orderId: 1, itemId: 1, quantity: 1 },
-      { id: 2, orderId: 1, itemId: 2, quantity: 1 },
-    ],
     order: this.props.order,
   };
   render() {
-    const { lineItems, order } = this.state;
+    const { order } = this.state;
     return (
       <div className="order">
-        {lineItems.map((lineItem, index) => {
+        {lineItem.map((lineItem, index) => {
           return <LineItem lineItem={lineItem} key={index} />;
         })}
         <div className="orderInfo">
