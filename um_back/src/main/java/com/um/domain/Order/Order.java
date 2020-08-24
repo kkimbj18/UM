@@ -1,4 +1,4 @@
-package com.um.domain.brand;
+package com.um.domain.Order;
 
 import com.um.domain.user.User;
 import lombok.AllArgsConstructor;
@@ -7,28 +7,34 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.awt.*;
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 @Builder
-@Table(name="brand")
-public class Brand {
-
+@Entity
+@Table(name = "order")
+public class Order {
     @Id
-    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int brandId;
+    private int orderId;
 
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;
 
-    @Column(nullable = false)
+    @Column(name = "status")
+    private String status;
+
+    @Column(name = "name")
     private String name;
 
-    //@Column(nullable = false)
-    //private Image logo;
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "phoneNumber")
+    private String phoneNumber;
+
+    @Column(name = "date")
+    private String date;
 }

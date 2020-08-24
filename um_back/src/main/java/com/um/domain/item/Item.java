@@ -21,8 +21,8 @@ public class Item {
     private int itemId;
 
     @ManyToOne
-    @JoinColumn(name="product_id")
-    private Product productId;
+    @JoinColumn(name="productId")
+    private Product product;
 
     @Column(nullable = false)
     private int size;

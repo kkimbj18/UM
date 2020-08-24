@@ -22,8 +22,8 @@ public class Product {
     private int productId;
 
     @ManyToOne
-    @JoinColumn(name = "brand_id")
-    private Brand brandId;
+    @JoinColumn(name = "brandId")
+    private Brand brand;
 
 
     @Column(nullable = false)
@@ -54,5 +54,5 @@ public class Product {
     private descriptionImage;
      */
 
-    public int getBrandId(){ return brandId.getBrandId(); }
+    public int getBrandId(){ return brand.getBrandId(); }
 }
