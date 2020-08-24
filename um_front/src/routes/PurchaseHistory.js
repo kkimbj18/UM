@@ -4,6 +4,7 @@ import Nav from "../components/Nav";
 import { Link } from "react-router-dom";
 import Order from "../components/Order";
 import { order } from "../db";
+import "../css/PurchaseHistory.css";
 
 class PurchaseHistory extends React.Component {
   render() {

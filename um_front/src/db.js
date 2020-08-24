@@ -35,31 +35,6 @@ export const product = [
         price: 99999,
     },];
 
-export const item = [
-    {
-        id: 1,
-        product_id: 1,
-        size: "free",
-        color: "blue",
-        remain: 323,
-        price: 15000,
-    },
-    {
-        id: 2,
-        product_id: 2,
-        size: "free",
-        color: "red",
-        remain: 355,
-        price: 15000,
-    },
-    {
-        id: 3,
-        product_id: 3,
-        size: "free",
-        color: "green",
-        remain: 123,
-        price: 15000,
-    },];
 
 export const brand =[
     {
@@ -82,28 +57,41 @@ export const brand =[
     },
 ];
 
-export const brand = [
+
+export const item = [
   {
-    brandId: "1",
-    userId: "1",
-    name: "나이키",
-    logo:
-      "https://w7.pngwing.com/pngs/725/894/png-transparent-jumpman-nike-free-swoosh-nike-angle-triangle-logo.png",
+    id: 1,
+    product_id: 1,
+    size: "free",
+    color: "blue",
+    remain: 323,
+    price: 15000,
+    image:
+      "https://m.k-ration.co.kr/web/product/big/201711/400_shop1_458098.jpg",
+    name: "깔깔이",
   },
   {
-    brandId: "2",
-    userId: "2",
-    name: "엄준식",
-    logo: "/images/um",
+    id: 2,
+    product_id: 2,
+    size: "free",
+    color: "red",
+    remain: 355,
+    price: 15000,
+    image:
+      "https://lh3.googleusercontent.com/proxy/zlK5x8BCh7QsYPzh1X2X1oyTFOUefd80Ra1fr9SP06aLTsoSrTefOdMi_Gw32H7DRAMWh7_s4n6iSotifK4nLDy8pFsAytbrvFWzeD7bO-j_zoqQ",
+    name: "야삽",
   },
   {
-    brandId: "3",
-    userId: "3",
-    name: "아디다스",
-    logo:
-      "https://w7.pngwing.com/pngs/154/670/png-transparent-adidas-originals-logo-brand-adidas-text-logo-adidas.png",
+    id: 3,
+    product_id: 3,
+    size: "free",
+    color: "green",
+    remain: 123,
+    price: 15000,
+    image:
+      "https://munguland.com/web/product/big/201801/28066_shop1_870561.jpg",
+    name: "수통",
   },
-];
 
 export const lineItem = [
   { id: 1, orderId: 1, itemId: 1, quantity: 1, totalPrice: 15000 },
@@ -116,10 +104,10 @@ export const order = [
     id: 1,
     userId: 1,
     status: 0,
-    name: null,
-    address: null,
-    phoneNumber: null,
-    date: null,
+    name: "엄준식",
+    address: "카카오tv",
+    phoneNumber: "060-700-5454",
+    date: Date.now(),
   },
 ];
 
