@@ -8,7 +8,9 @@ import { item, product } from "../db";
 
 class Home extends React.Component {
   state = {
-    isUserAuth: this.props.location.state.current_user,
+    isUserAuth: this.props.location.state
+      ? this.props.location.state.current_user
+      : 0,
   };
 
   checkUser = async () => {
