@@ -1,11 +1,23 @@
 import React from "react";
 import "../css/Header.css";
 import { Link } from "react-router-dom";
+import AuthenticationService from "../components/AuthenticationService"
 
 class Header extends React.Component {
   state = {
-    userAuth: 1,
+    token: localStorage.getItem('token'),
+    account: localStorage.getItem('authenticatedUser'),
   };
+
+  logout=() => {
+    localStorage.removeItem("authenticatedUser");
+    localStorage.removeItem("token");
+    this.setState({
+      token: localStorage.getItem('token'),
+      account: localStorage.getItem('authenticatedUser'),
+    });
+}
+
   render() {
     return (
       <header className="header">
@@ -22,7 +34,7 @@ class Header extends React.Component {
             <i className="fas fa-search"></i>
           </Link>
         </div>
-        {this.state.userAuth ? (
+        {AuthenticationService.isUserLoggedIn() ? (
           <div className="headerColumn">
             <Link to="/my_page" className="headerBtn">
               마이페이지
@@ -30,7 +42,7 @@ class Header extends React.Component {
             <Link to="#" className="headerBtn">
               장바구니
             </Link>
-            <Link to="#" className="headerBtn">
+            <Link to="/" onClick={this.logout} className="headerBtn">
               로그아웃
             </Link>
           </div>
