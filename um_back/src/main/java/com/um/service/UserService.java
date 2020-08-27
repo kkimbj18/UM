@@ -2,6 +2,8 @@ package com.um.service;
 
 import com.um.domain.user.User;
 import com.um.domain.user.UserRepository;
+import com.um.domain.userOrder.UserOrder;
+import com.um.domain.userOrder.UserOrderRepository;
 import com.um.web.dto.UserCreateDto;
 import com.um.web.dto.UserProfileUpdateDto;
 import com.um.web.dto.UserResponseDto;
@@ -20,7 +22,7 @@ import java.util.Collections;
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
-
+    private final UserOrderRepository userOrderRepository;
     @Transactional
     public UserResponseDto getProfile(int userId)
     {
@@ -60,6 +62,11 @@ public class UserService implements UserDetailsService {
                 .address(userCreateDto.getAddress())
                 .name(userCreateDto.getName())
                 .phoneNumber(userCreateDto.getPhoneNumber())
+                .build());
+
+        userOrderRepository.save(UserOrder.builder()
+                .user(user)
+                .status("cart")
                 .build());
 
         return user.getUserId();
