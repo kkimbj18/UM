@@ -95,21 +95,13 @@ public class ProductService {
         return response;
     }
     @Transactional
-    public List<ProductResponseDto> findByPrice(int price)
+    public List<ProductResponseDto> findByPrice(int price1, int price2)
     {
-        int cnt = 0;
-        int temp[] = {10000, 20000, 30000, 50000, 100000, 200000, 300000, 9999999};
-
-        for(int i : temp){
-            cnt++;
-            if(price == i) break;
-        }
-
         List<Product> productList = productRepository.findAll();
         List<ProductResponseDto> response = new ArrayList<>();
 
         for(Product product : productList) {
-            if(product.getPrice() < temp[cnt] && product.getPrice() >= price)
+            if(product.getPrice() <= price2 && product.getPrice() >= price1)
             {
                 response.add(ProductResponseDto.builder()
                         .productId(product.getProductId())

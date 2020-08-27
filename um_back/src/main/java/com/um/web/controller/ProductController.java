@@ -51,8 +51,9 @@ public class ProductController {
     }
     // 가격대로 제품 검색 ( ~ing )
     @CrossOrigin
-    @GetMapping("/search/price/{price}")
-    public List<ProductResponseDto> searchByCost(@PathVariable("price") int price) throws SQLException {
-        return productService.findByPrice(price);
+    @GetMapping("/search/price/{price1}/{price2}")
+    public List<ProductResponseDto> searchByCost(@PathVariable("price1") int price1,
+                                                 @PathVariable("price2") int price2) throws SQLException {
+        return productService.findByPrice(price1, price2);
     }
 }
