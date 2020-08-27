@@ -5,12 +5,26 @@ import Signupbtn from "../components/Signup";
 import Logo from "../images/kakaoTalk_20200806_202115751.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import AuthenticationService from "../components/AuthenticationService"
 
 class Login extends React.Component {
-  handleSubmit = async (event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
+    const account = event.target.account.value;
+    const password = event.target.password.value;
+    AuthenticationService
+        .executeJwtAuthenticationService(account, password)
+        .then((response) => {
+        AuthenticationService.registerSuccessfulLoginForJwt(account,response.data);
+        this.props.history.push("/");
+    }).catch( (error) =>{
+        this.setState({showSuccessMessage:false});
+        this.setState({hasLoginFailed:true});
+        console.log(error);
+    })
+    /*
     try {
-      const current_user = await axios
+      const token = await axios
         .post(
           "http://ec2-3-34-81-212.ap-northeast-2.compute.amazonaws.com:8080/login",
           {
@@ -19,15 +33,14 @@ class Login extends React.Component {
           }
         )
         .then((response) => {
-          this.props.history.push({
-            pathname: "/",
-            state: { current_user: response.data },
-          });
+          localStorage.setItem('token', token);
+          this.props.history.push("/");
         });
     } catch (error) {
       console.log(error);
       alert("문제가 생겨스빈다.");
     }
+    */
   };
 
   render() {

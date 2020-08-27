@@ -3,6 +3,7 @@ import "./css/App.css";
 import Home from "./routes/Home";
 import { Route, BrowserRouter } from "react-router-dom";
 import Login from "./routes/Loginpage";
+import Logout from "./components/Logout"
 import Signup from "./routes/Signuppage";
 import Mypage from "./routes/Mypage";
 import EditMyinfo from "./routes/EditMyinfo";
@@ -16,6 +17,7 @@ class App extends React.Component {
       <BrowserRouter>
         <Route path="/" exact={true} component={Home} />
         <Route path="/login" exact={true} component={Login} />
+        <Route path="/logout" exact={true} component={Logout} />
         <Route path="/signup" exact={true} component={Signup} />
         <Route path="/details" exact={true} component={Itemdetail} />
         <Route path="/my_page" exact={true} render={() => <Mypage />} />

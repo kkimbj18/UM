@@ -5,7 +5,6 @@ function Sample(product) {
   return (
     <Link to={{pathname:"/details", state:product}}>
       <div className="sample">
-        {console.log(product)}
         <img src={product.product.image} alt="sample photo" className="sampleImage"></img>
         <h6 className="sampleName">{product.product.name}</h6>
         <span className="samplePrice">{product.product.price}원</span>

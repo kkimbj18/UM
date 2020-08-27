@@ -8,27 +8,9 @@ import { item, product } from "../db";
 
 class Home extends React.Component {
   state = {
-    isUserAuth: this.props.location.state
-      ? this.props.location.state.current_user
-      : 0,
+    token: localStorage.getItem('token'),
+    account: localStorage.getItem('authenticatedUser'),
   };
-
-  checkUser = async () => {
-    try {
-      const userCheck = await axios.get(
-        "http://ec2-3-34-81-212.ap-northeast-2.compute.amazonaws.com:8080/userCheck"
-      );
-      console.log(this.props);
-      console.log(this.state.isUserAuth);
-    } catch (error) {
-      console.log(error);
-      alert("문제가 생겨스빈다.");
-    }
-  };
-
-  componentDidMount() {
-    this.checkUser();
-  }
 
   render() {
     const items = item;
@@ -47,7 +29,7 @@ class Home extends React.Component {
 
     return (
       <div className="App">
-        <Header isUserAuth={this.state.isUserAuth ? 1 : 0} />
+        <Header />
         <Nav />
         <main className="main">
           <div className="samples">
