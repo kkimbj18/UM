@@ -17,39 +17,39 @@ public class ProductController {
 
     private final ProductRepository productRepository;
     private final ProductService productService;
-
+    // 이름으로 제품 검색
     @CrossOrigin
     @GetMapping("/search/{name}")
     public List<ProductResponseDto> searchByName(@PathVariable("name") String name)throws SQLException {
 
         return productService.findByName(name);
     }
-
+    // 제품 생성 Test API
     @CrossOrigin
     @PostMapping("/Product/Test")
     public int productTest(@RequestBody ProductCreateDto productCreateDto) {
 
         return productService.create(productCreateDto);
     }
-
+    // 모든 제품 확인
     @CrossOrigin
     @GetMapping("/productCheck")
     public List<Product> check(){
         return productRepository.findAll();
     }
-
+    // 대분류 카테고리로 제품 검색
     @CrossOrigin
     @GetMapping("/search/filter/{category1}")
     public List<ProductResponseDto> searchByFilter(@PathVariable("category1") String category1)throws SQLException {
         return productService.findByFilter(category1);
     }
-
+    // 소분류 카테고리로 제품 검색
     @CrossOrigin
     @GetMapping("/search/filter/sub/{category2}")
     public List<ProductResponseDto> searchBySubFilter(@PathVariable("category2") String category2)throws SQLException {
         return productService.findBySubFilter(category2);
     }
-
+    // 가격대로 제품 검색 ( ~ing )
     @CrossOrigin
     @GetMapping("/search/price/{price}")
     public List<ProductResponseDto> searchByCost(@PathVariable("price") int price) throws SQLException {
