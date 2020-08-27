@@ -4,19 +4,23 @@ import Header from "../components/Header";
 import "../css/Itemdetail.css";
 import "../css/Home.css";
 import "../css/App.css";
-import {brand} from "../db"
+import {brand} from "../db";
+
+function getbrand(brand, brandID) {
+    let thisbrand ={};
+    for(let i=0; i<brand.length; i++){
+        if(brand[i].id == brandID){
+            thisbrand = brand[i];
+            break;
+        }
+    }
+    return thisbrand;
+}
+
+
 class Itemdetail extends React.Component{
     render() {
-        let thisbrand={};
-
-        for (let i = 0; i < brand.length; i++) {
-            console.log(this.props.location.state.product.brandid);
-            if (brand[i].id == this.props.location.state.product.brandid) {
-                thisbrand = brand[i];
-                break;
-            }
-        }
-
+        let thisbrand = getbrand(brand, this.props.location.state.product.brandId);
         return (
             <div className="App">
                 <Header></Header>
@@ -29,46 +33,33 @@ class Itemdetail extends React.Component{
                             <div className="item_bigimg">
                                 <img src={this.props.location.state.product.image} height="580px" width="480px"></img>
                             </div>
-                            <div>type</div>
                         </div>
                         <div className="contents-right">
                             <div className="product-exclusive-info">
-                                <h4 className="exclusive-info-name">엄준식</h4>
-                                <img src={thisbrand.logo}></img>
-                                <h5>최고의 브랜드 엄준식의 대표 상품입니다.</h5>
+                                <h4 className="exclusive-info-name">{thisbrand.name}</h4>
+                                <img src={thisbrand.logo} height="100px" width="230px"></img>
+                                <h5>최고의 브랜드 {thisbrand.name}의 대표 상품입니다.</h5>
                             </div>
                             <div className="product-explain">
                                 <h4 className="title-box">Product info</h4>
-                                <h5> - 브랜드   : 엄준식</h5>
+                                <h5> - 브랜드   : {thisbrand.name} </h5>
                                 <h5> - 누적판매량 : {this.props.location.state.product.soldAmount}</h5>
-                                <h5> - 구매후기 : {this.props.location.state.product.rating}</h5>
+                                <h5> - 구매후기 : 
+                                    <span class="star-rating">
+                                        <span style={{width:this.props.location.state.product.rating + "%"}}></span>
+                                    </span>
+                                </h5>
+                            </div>
+                            <div className="product-explain">
+                                <h4 className="title-box">Price info</h4>
+                                <h5> - UM 판매가 : {this.props.location.state.product.price}</h5>
+                                <h5> - UM 적립금 : {this.props.location.state.product.price*0.05}</h5>
+                                <h4 className="yellow-box">UM은 모든 상품 무료 배송입니다.</h4>
                             </div>
                         </div>
                     </div>
                 </main>
-            </div>
-            <div className="contents-right">
-              <div className="product-exclusive-info">
-                <h4 className="exclusive-info-name">엄준식</h4>
-                <img src={thisbrand.logo}></img>
-                <h5>최고의 브랜드 엄준식의 대표 상품입니다.</h5>
-              </div>
-              <div className="product-explain">
-                <h4 className="title-box">Product info</h4>
-                <h5> - 브랜드 : 엄준식</h5>
-                <h5>
-                  {" "}
-                  - 누적판매량 : {this.props.location.state.product.soldAmount}
-                </h5>
-                <h5>
-                  {" "}
-                  - 구매후기 : {this.props.location.state.product.rating}
-                </h5>
-              </div>
-            </div>
           </div>
-        </main>
-      </div>
     );
   }
 }

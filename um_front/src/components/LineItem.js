@@ -6,24 +6,25 @@ class LineItem extends React.Component {
     lineItem: this.props.lineItem,
   };
 
-  mkfnc = () => {
-    item.map((item) => {
-      if (this.state.lineItem.itemId === item.id) {
-        return item;
+  mkfnc = (items) => {
+    let current_item;
+    items.map((current) => {
+      if (this.state.lineItem.itemId === current.id) {
+        current_item = current;
       }
     });
+    return current_item;
   };
-
-  constructor() {}
 
   render() {
     const { lineItem } = this.state;
+    const current_item = this.mkfnc(item);
     return (
       <div className="lineItem">
-        <div className="lineItemImage"></div>
-        <div className="lineItemName"></div>
-        <div className="lineItemQuantity">{lineItem.quantity}</div>
-        <div className="lineItemPrice">{lineItem.totalPrice}</div>
+        <img className="lineItemImage" src={current_item.image}></img>
+        <div className="lineItemName">{current_item.name}</div>
+        <div className="lineItemQuantity">{lineItem.quantity}개</div>
+        <div className="lineItemPrice">{lineItem.totalPrice}원</div>
       </div>
     );
   }
