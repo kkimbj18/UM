@@ -66,12 +66,15 @@ public class UserController {
     //로그인
     @CrossOrigin
     @PostMapping("/login")
-    public String login(@RequestBody UserLoginDto userLoginDto) {
+    public int login(@RequestBody UserLoginDto userLoginDto) {
         User member = userRepository.findByAccount(userLoginDto.getAccount())
             .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 계정 입니다."));
         if(!passwordEncoder.matches(userLoginDto.getPassword(), member.getPassword())) {
             throw new IllegalArgumentException("잘못된 비밀번호입니다.");
         }
-        return jwtTokenProvider.createToken(member.getName(), member.getRole());
+        //return jwtTokenProvider.createToken(member.getName(), member.getRole());
+        jwtTokenProvider.createToken(member.getName(), member.getRole());
+
+        return member.getUserId();
     }
 }
