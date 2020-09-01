@@ -5,6 +5,7 @@ import "../css/Itemdetail.css";
 import "../css/Home.css";
 import "../css/App.css";
 import { brand } from "../db";
+import { Link } from "react-router-dom";
 
 function getbrand(brand, brandID) {
   let thisbrand = {};
@@ -33,7 +34,7 @@ class Itemdetail extends React.Component {
             <div className="contents-left">
               <div className="item_bigimg">
                 <img
-                  src={this.props.location.state.product.image}
+                  src={this.props.location.state.product.thumbnail}
                   height="580px"
                   width="480px"
                 ></img>
@@ -76,14 +77,31 @@ class Itemdetail extends React.Component {
                 </h5>
                 <h4 className="yellow-box">UM은 모든 상품 무료 배송입니다.</h4>
               </div>
-              <input
-                type="submit"
-                className="buybtn"
-                value="장바구니로 ㄱㄱ"
-              ></input>
+              <div className="option-box-cover">
+                <select className="option-box">
+                  <option selected="selected">옵션 선택</option>
+                  <option>블랙</option>
+                </select>
+              </div>
+              <div className="total-price-box">
+                총 합계
+                <span className="total-price">{}원</span>
+              </div>
+              <Link to="/">
+                <input
+                  type="submit"
+                  className="buybtn"
+                  value="장바구니로 ㄱㄱ"
+                ></input>
+              </Link>
             </div>
           </div>
-          <div className="contents-info">Info</div>
+          <div className="contents-info">
+            <br />
+            <h3 className="title-box">Info</h3>
+            <br />
+            <img src={this.props.location.state.product.descriptionImage}></img>
+          </div>
         </main>
       </div>
     );
