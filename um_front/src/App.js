@@ -11,6 +11,7 @@ import EditMyinfo from "./routes/EditMyinfo";
 import Itemdetail from "./routes/Itemdetail";
 import PurchaseHistory from "./routes/PurchaseHistory";
 import CreateReview from "./routes/CreateReview";
+import Cart from "./routes/Cart"
 
 class App extends React.Component {
   render() {
@@ -24,6 +25,7 @@ class App extends React.Component {
         <Route path="/details" exact={true} component={Itemdetail} />
         <Route path="/my_page" exact={true} render={() => <Mypage />} />
         <Route path="/my_page/edit" exact={true} component={EditMyinfo} />
+        <Route path="/cart" exact={true} component={Cart} />
         <Route
           path="/my_page/purchase_history"
           exact={true}
