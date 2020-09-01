@@ -1,5 +1,7 @@
 package com.um.service;
 
+import com.um.domain.brand.Brand;
+import com.um.domain.brand.BrandRepository;
 import com.um.domain.product.Product;
 import com.um.domain.product.ProductRepository;
 import com.um.web.dto.ProductCreateDto;
@@ -15,11 +17,17 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
+    private final BrandRepository brandRepository;
 
     @Transactional
     public int create(ProductCreateDto productCreateDto)
     {
+        Brand brand = brandRepository.findById(productCreateDto.getBrandId())
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "해당 브랜드 명이 존재하지 않습니다. (BrandId : " + productCreateDto.getBrandId() + ")"));
+
         Product product =  productRepository.save(Product.builder()
+            .brand(brand)
             .name(productCreateDto.getName())
             .category1(productCreateDto.getCategory1())
             .category2(productCreateDto.getCategory2())

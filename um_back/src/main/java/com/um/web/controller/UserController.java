@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -66,15 +67,18 @@ public class UserController {
     //로그인
     @CrossOrigin
     @PostMapping("/login")
-    public int login(@RequestBody UserLoginDto userLoginDto) {
+    public List<String> login(@RequestBody UserLoginDto userLoginDto) {
+        List<String> list = new ArrayList<>();
+
         User member = userRepository.findByAccount(userLoginDto.getAccount())
             .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 계정 입니다."));
         if(!passwordEncoder.matches(userLoginDto.getPassword(), member.getPassword())) {
             throw new IllegalArgumentException("잘못된 비밀번호입니다.");
         }
         //return jwtTokenProvider.createToken(member.getName(), member.getRole());
-        jwtTokenProvider.createToken(member.getName(), member.getRole());
+        list.add(jwtTokenProvider.createToken(member.getName(), member.getRole()));
+        list.add(Integer.toString(member.getUserId()));
 
-        return member.getUserId();
+        return list;
     }
 }

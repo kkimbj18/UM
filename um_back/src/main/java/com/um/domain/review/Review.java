@@ -37,4 +37,7 @@ public class Review {
 
     @Column(name = "photo")
     private String photo;
+
+    //public int getUserId(){ return user.getUserId(); }
+    //public int getItemId(){ return item.getItemId(); }
 }

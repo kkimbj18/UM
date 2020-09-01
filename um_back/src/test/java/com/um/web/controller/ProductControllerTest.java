@@ -41,45 +41,45 @@ public class ProductControllerTest {
     @Before
     public void setup(){
         userRepository.save(User.builder()
-            .account("sex")
-            .password("1234")
-            .name("mg")
-            .address("ajouU")
-            .phoneNumber("0102748476")
-            .role(Collections.singletonList("ROLE_USER"))
-            .build());
+                .account("sex")
+                .password("1234")
+                .name("mg")
+                .address("ajouU")
+                .phoneNumber("0102748476")
+                .role(Collections.singletonList("ROLE_USER"))
+                .build());
 
         brandRepository.save(Brand.builder()
-            .user(userRepository.findAll().get(0))
-            .name("Tw")
-            .build());
+                .user(userRepository.findAll().get(0))
+                .name("Tw")
+                .build());
 
         productRepository.save(Product.builder()
                 .brand(brandRepository.findAll().get(0))
                 .name("socks")
-                .category1("XL")
-                .category2("red")
+                .category1("Top")
+                .category2("T-shirt")
                 .price(20000)
                 .build());
         productRepository.save(Product.builder()
                 .brand(brandRepository.findAll().get(0))
                 .name("sucks")
-                .category1("XL")
-                .category2("blue")
+                .category1("Top")
+                .category2("blouse")
                 .price(30000)
                 .build());
         productRepository.save(Product.builder()
                 .brand(brandRepository.findAll().get(0))
                 .name("xucks")
-                .category1("XL")
-                .category2("yellow")
+                .category1("pants")
+                .category2("Blue Jeans")
                 .price(15000)
                 .build());
         productRepository.save(Product.builder()
                 .brand(brandRepository.findAll().get(0))
                 .name("sus")
-                .category1("L")
-                .category2("charcoal")
+                .category1("Accessory")
+                .category2("socks")
                 .price(10000)
                 .build());
     }
@@ -91,18 +91,19 @@ public class ProductControllerTest {
     }
     @Test
     public void productFilterTest(){
-        String url = "http://localhost:" + port + "/search/filter/XL";
+        String url = "http://localhost:" + port + "/search/filter/Top";
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
 
-        assertThat(responseEntity.getBody()).isEqualTo("temp");
-        //assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        //assertThat(responseEntity.getBody()).isEqualTo("temp");
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
     @Test
     public void productSubFilterTest(){
-        String url = "http://localhost:" + port + "/search/filter/sub/red";
+        String url = "http://localhost:" + port + "/search/filter/sub/blouse";
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
 
-        assertThat(responseEntity.getBody()).isEqualTo("temp");
+        //assertThat(responseEntity.getBody()).isEqualTo("temp");
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
     @Test
     public void productSearchTest(){
@@ -115,9 +116,11 @@ public class ProductControllerTest {
     }
     @Test
     public void productSearchPrice(){
-        String url = "http://localhost:" + port + "/search/price/10000";
+        String url = "http://localhost:" + port + "/search/price/10000/20000";
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
 
-        assertThat(responseEntity.getBody()).isEqualTo("temp");
+        //assertThat(responseEntity.getBody()).isEqualTo("temp");
+
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 }
