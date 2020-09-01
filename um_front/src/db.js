@@ -102,6 +102,8 @@ export const lineItem = [
   { id: 1, orderId: 1, itemId: 1, quantity: 1, totalPrice: 15000 },
   { id: 2, orderId: 1, itemId: 2, quantity: 1, totalPrice: 15000 },
   { id: 3, orderId: 1, itemId: 3, quantity: 1, totalPrice: 15000 },
+  { id: 4, orderId: 77, itemId: 1, quantity: 1, totalPrice: 15000 },
+  { id: 5, orderId: 77, itemId: 3, quantity: 1, totalPrice: 15000 },
 ];
 
 export const order = [

@@ -40,7 +40,7 @@ class Header extends React.Component {
             <Link to="/my_page" className="headerBtn">
               마이페이지
             </Link>
-            <Link to="#" className="headerBtn">
+            <Link to="/cart" className="headerBtn">
               장바구니
             </Link>
             <Link to="/" onClick={this.logout} className="headerBtn">
