@@ -25,14 +25,15 @@ class Header extends React.Component {
           <Link className="headerTitle" to="/">
             <h4>UM</h4>
           </Link>
+          <form action="/search" method="get">
           <input
             className="headerSearch"
             placeholder="검색하세오"
-            type="text"
+            type="text" name="name"
           ></input>
-          <Link to="#" className="headerSearchBtn">
-            <i className="fas fa-search"></i>
-          </Link>
+          <input type="submit" value="&#xf002;" className="headerSearchBtn"></input>
+          
+          </form>
         </div>
         {AuthenticationService.isUserLoggedIn() ? (
           <div className="headerColumn">
