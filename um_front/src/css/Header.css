@@ -30,3 +30,7 @@
   margin-left: 5px;
   font-size: 10px;
 }
+
+input[type="submit"] {
+  font-family: FontAwesome;
+}

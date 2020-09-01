@@ -15,7 +15,7 @@ export const product = [
   },
   {
     id: 2,
-    brandId: 1,
+    brandId: 2,
     name: "준",
     rating: 35,
     soldAmount: 333,
@@ -27,7 +27,7 @@ export const product = [
   },
   {
     id: 3,
-    brandId: 1,
+    brandId: 3,
     name: "식",
     rating: 89,
     soldAmount: 1928,
