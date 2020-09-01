@@ -1,5 +1,7 @@
 package com.um.service;
 
+import com.um.domain.brand.Brand;
+import com.um.domain.brand.BrandRepository;
 import com.um.domain.product.Product;
 import com.um.domain.product.ProductRepository;
 import com.um.web.dto.ProductCreateDto;
@@ -15,11 +17,17 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
+    private final BrandRepository brandRepository;
 
     @Transactional
     public int create(ProductCreateDto productCreateDto)
     {
+        Brand brand = brandRepository.findById(productCreateDto.getBrandId())
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "해당 브랜드 명이 존재하지 않습니다. (BrandId : " + productCreateDto.getBrandId() + ")"));
+
         Product product =  productRepository.save(Product.builder()
+            .brand(brand)
             .name(productCreateDto.getName())
             .category1(productCreateDto.getCategory1())
             .category2(productCreateDto.getCategory2())
@@ -95,21 +103,13 @@ public class ProductService {
         return response;
     }
     @Transactional
-    public List<ProductResponseDto> findByPrice(int price)
+    public List<ProductResponseDto> findByPrice(int price1, int price2)
     {
-        int cnt = 0;
-        int temp[] = {10000, 20000, 30000, 50000, 100000, 200000, 300000, 9999999};
-
-        for(int i : temp){
-            cnt++;
-            if(price == i) break;
-        }
-
         List<Product> productList = productRepository.findAll();
         List<ProductResponseDto> response = new ArrayList<>();
 
         for(Product product : productList) {
-            if(product.getPrice() < temp[cnt] && product.getPrice() >= price)
+            if(product.getPrice() <= price2 && product.getPrice() >= price1)
             {
                 response.add(ProductResponseDto.builder()
                         .productId(product.getProductId())
