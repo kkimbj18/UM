@@ -8,8 +8,8 @@ import { item, product } from "../db";
 
 class Home extends React.Component {
   state = {
-    token: localStorage.getItem('token'),
-    account: localStorage.getItem('authenticatedUser'),
+    token: localStorage.getItem("token"),
+    account: localStorage.getItem("authenticatedUser"),
   };
 
   render() {
