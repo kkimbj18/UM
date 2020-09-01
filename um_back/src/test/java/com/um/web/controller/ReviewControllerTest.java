@@ -112,6 +112,7 @@ public class ReviewControllerTest {
         brandRepository.deleteAll();
         userRepository.deleteAll();
     }
+    /*
     @Test
     public void postReviewTest(){
         String url = "http://localhost:" + port + "/review/post";
@@ -120,4 +121,6 @@ public class ReviewControllerTest {
         //assertThat(responseEntity.getBody()).isEqualTo("temp");
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
+
+     */
 }
