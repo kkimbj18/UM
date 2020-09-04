@@ -13,7 +13,7 @@
   width: 100%;
 }
 
-.category,
+.categoryColumn,
 .option {
   width: 100%;
   border-bottom: solid 0.5px grey;
@@ -48,3 +48,4 @@
 .category:hover .caption {
   display: block;
 }
+
