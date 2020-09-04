@@ -18,3 +18,9 @@ main {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.noResult {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

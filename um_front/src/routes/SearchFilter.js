@@ -21,7 +21,7 @@ class Search extends React.Component {
     return query;
   }
 
-  getProducts = async(name) => {
+  getProducts = async(category1) => {
     let products = [];
     try {
       products = await axios.get(`http://ec2-3-34-81-212.ap-northeast-2.compute.amazonaws.com:8080/search/filter/${category1}`);
@@ -37,9 +37,8 @@ class Search extends React.Component {
     console.log(this.props);
     const query = this.getQurey(this.props)
     const { category1 } = query;
-    console.log(name);
     let products = [];
-    products = this.getProducts(name);
+    products = this.getProducts(category1);
     console.log(products);
 
     return (
@@ -47,10 +46,12 @@ class Search extends React.Component {
         <Header />
         <Nav />
         <main className="main">
+          <h4>{category1}</h4>
           <div className="samples">
             {products.length === 0 ? products.map((products, index) => {
               return <Sample key={index} product={products} />;
-            }): (<span>{name}의 검색 결과가 없어용</span>)}
+            }): (<div className="noResult"><img src="http://software.ajou.ac.kr/bbs/data/professor/5eedf970_Yenewondim.PNG"></img>
+            <span>해당 카테고리에 물품이 없어용</span></div>)}
           </div>
         </main>
       </div>
