@@ -23,6 +23,28 @@ public class SellerService {
 
     @Transactional
     public List<SellerSoldAmountResponseDto> calSoldAmount(int id) {
+        List<SellerSoldAmountResponseDto> list = new ArrayList<>();
+
+        User me = userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다"));
+        Brand myBrand = brandRepository.findByUser_UserId(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 사용자는 등록한 브랜드가 없습니다"));
+        List<Product> products = productRepository.findByBrand_BrandId(myBrand.getBrandId());
+
+        if(products.isEmpty()) throw new IllegalArgumentException("아직 등록된 물품이 없습니다");
+
+        for(Product product : products){
+            list.add(SellerSoldAmountResponseDto.builder()
+                    .id(product.getProductId())
+                    .quantity(product.getSoldAmount())
+                    .build());
+        }
+
+        return list;
+    }
+    /*
+    @Transactional
+    public List<SellerSoldAmountResponseDto> calSoldAmount(int id) {
         Brand myBrand = new Brand();
         List<SellerSoldAmountResponseDto> list = new ArrayList<>();
 
@@ -46,7 +68,27 @@ public class SellerService {
 
         return list;
     }
+     */
+    @Transactional
+    public int calMyProfit(int id){
+        int profit = 0;
 
+        User me = userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다"));
+
+        Brand myBrand = brandRepository.findByUser_UserId(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 사용자는 등록한 브랜드가 없습니다"));
+
+        List<Product> products = productRepository.findByBrand_BrandId(myBrand.getBrandId());
+
+        if(products.isEmpty()) throw new IllegalArgumentException("아직 등록된 물품이 없습니다");
+
+        for(Product product : products)
+                profit += product.getPrice() * product.getSoldAmount();
+
+        return profit;
+    }
+/*
     @Transactional
     public int calMyProfit(int id){
         Brand myBrand = new Brand();
@@ -62,6 +104,7 @@ public class SellerService {
             if(brand.getUserId() == id)
                 myBrand = brand;
         }
+
         List<Product> products = productRepository.findAll();
 
         for(Product product : products){
@@ -72,4 +115,6 @@ public class SellerService {
 
         return profit;
     }
+
+ */
 }
