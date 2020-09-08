@@ -17,4 +17,10 @@ public class BuyingController {
     {
         return itemService.putItem(lineItemCreateDto.getItemId(),lineItemCreateDto.getUserId(),lineItemCreateDto.getQuantity());
     }
+
+    @CrossOrigin
+    @PostMapping("/item/buy")
+    public String buyItem(@RequestParam("userId") int userId){
+        return itemService.buyItem(userId);
+    }
 }

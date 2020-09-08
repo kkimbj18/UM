@@ -37,4 +37,8 @@ public class UserOrder {
 
     @Column(name = "date")
     private String date;
+
+    public void buyItem(){
+        this.status = "complete";
+    }
 }
