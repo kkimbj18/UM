@@ -11,6 +11,7 @@ import com.um.domain.user.User;
 import com.um.domain.user.UserRepository;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -112,7 +113,7 @@ public class ReviewControllerTest {
         brandRepository.deleteAll();
         userRepository.deleteAll();
     }
-    /*
+    @Ignore
     @Test
     public void postReviewTest(){
         String url = "http://localhost:" + port + "/review/post";
@@ -121,6 +122,4 @@ public class ReviewControllerTest {
         //assertThat(responseEntity.getBody()).isEqualTo("temp");
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
-
-     */
 }
