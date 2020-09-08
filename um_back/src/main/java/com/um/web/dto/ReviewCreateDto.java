@@ -16,12 +16,12 @@ public class ReviewCreateDto {
     private String photo;
 
     @Builder
-    public ReviewCreateDto(int userId, int itemId, String content, short rating, String photo){
+    public ReviewCreateDto(int userId, int itemId, String content, short rating/*, String photo*/){
         this.userId = userId;
         this.itemId = itemId;
         this.content = content;
         this.rating = rating;
-        this.photo = photo;
+        //this.photo = photo;
     }
 
 }
