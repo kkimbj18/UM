@@ -36,6 +36,10 @@ public class Item {
     @Column(nullable = false)
     private int remain;
 
+    public void sellItem(int amount){
+        this.remain = this.remain - amount;
+    }
+
     /*
     @lob
     @column
