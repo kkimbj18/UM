@@ -41,8 +41,8 @@ public class ReviewService {
                 .rating(reviewCreateDto.getRating())
                 .build());
 
-        list.add(reviewCreateDto.getUserId());
-        list.add(reviewCreateDto.getItemId());
+        list.add(review.getUser().getUserId());
+        list.add(review.getItem().getItemId());
 
         return list;
     }
