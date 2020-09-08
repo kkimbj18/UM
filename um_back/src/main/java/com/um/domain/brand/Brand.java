@@ -31,4 +31,6 @@ public class Brand {
 
     //@Column(nullable = false)
     //private Image logo;
+
+    public int getUserId(){ return user.getUserId(); }
 }
