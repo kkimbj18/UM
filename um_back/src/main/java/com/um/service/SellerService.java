@@ -27,9 +27,9 @@ public class SellerService {
 
         User me = userRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다"));
-        Brand myBrand = brandRepository.findByUser_UserId(id)
+        Brand myBrand = brandRepository.findByUser(me)
                 .orElseThrow(() -> new IllegalArgumentException("해당 사용자는 등록한 브랜드가 없습니다"));
-        List<Product> products = productRepository.findByBrand_BrandId(myBrand.getBrandId());
+        List<Product> products = productRepository.findByBrand(myBrand);
 
         if(products.isEmpty()) throw new IllegalArgumentException("아직 등록된 물품이 없습니다");
 
@@ -76,10 +76,10 @@ public class SellerService {
         User me = userRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다"));
 
-        Brand myBrand = brandRepository.findByUser_UserId(id)
+        Brand myBrand = brandRepository.findByUser(me)
                 .orElseThrow(() -> new IllegalArgumentException("해당 사용자는 등록한 브랜드가 없습니다"));
 
-        List<Product> products = productRepository.findByBrand_BrandId(myBrand.getBrandId());
+        List<Product> products = productRepository.findByBrand(myBrand);
 
         if(products.isEmpty()) throw new IllegalArgumentException("아직 등록된 물품이 없습니다");
 
