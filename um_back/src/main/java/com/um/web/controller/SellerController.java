@@ -36,9 +36,9 @@ public class SellerController {
 
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다"));
-        Brand brand = brandRepository.findByUserId(id)
+        Brand brand = brandRepository.findByUser(user)
                 .orElseThrow(() -> new IllegalArgumentException("해당 사용자는 가지고 있는 브랜드가 없습니다"));
-        List<Product> productList = productRepository.findByBrandId(brand.getBrandId());
+        List<Product> productList = productRepository.findByBrand(brand);
 
         if(productList.isEmpty()) throw new IllegalArgumentException("해당 사용자는 현재 등록한 물품이 없습니다");
 
@@ -59,9 +59,9 @@ public class SellerController {
 
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다"));
-        Brand brand = brandRepository.findByUserId(id)
+        Brand brand = brandRepository.findByUser(user)
                 .orElseThrow(() -> new IllegalArgumentException("해당 사용자는 가지고 있는 브랜드가 없습니다"));
-        List<Product> productList = productRepository.findByBrandId(brand.getBrandId());
+        List<Product> productList = productRepository.findByBrand(brand);
 
         if(productList.isEmpty()) throw new IllegalArgumentException("해당 사용자는 현재 등록한 물품이 없습니다");
 

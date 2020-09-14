@@ -43,7 +43,7 @@ public class ItemService {
         UserOrder cart = userOrderRepository.findById(userId)
                 .orElseThrow(() -> new UsernameNotFoundException("카트를 찾을 수 없습니다."));
         cart.buyItem();
-        List<LineItem> lineItemList = lineItemRepository.findByOrderId(cart.getOrderId());
+        List<LineItem> lineItemList = lineItemRepository.findByOrder(cart);
         for ( LineItem lineItem : lineItemList)
         {
             lineItem.getItem().sellItem(lineItem.getQuantity());
