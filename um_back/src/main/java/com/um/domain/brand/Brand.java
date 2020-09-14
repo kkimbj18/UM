@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.awt.*;
+import java.sql.Clob;
 
 @Getter
 @NoArgsConstructor
@@ -29,8 +30,9 @@ public class Brand {
     @Column(nullable = false)
     private String name;
 
-    //@Column(nullable = false)
-    //private Image logo;
+    @Lob
+    @Column(nullable = false)
+    private Clob logo;
 
     public int getUserId(){ return user.getUserId(); }
 }
