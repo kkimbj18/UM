@@ -19,7 +19,6 @@ public class SellerController {
     @CrossOrigin
     @GetMapping("/seller/{id}/statistics")
     public List<SellerSoldAmountResponseDto> checkSoldQuantity(@PathVariable("id") int id){
-
         return sellerService.calSoldAmount(id);
     }
 
