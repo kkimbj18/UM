@@ -7,7 +7,7 @@ function Sample(product) {
       <div className="sample">
         <img
           src={product.product.thumbnail}
-          alt="sample photo"
+          alt="sample"
           className="sampleImage"
         ></img>
         <h6 className="sampleName">{product.product.name}</h6>

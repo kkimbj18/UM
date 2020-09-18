@@ -5,23 +5,28 @@ import Signupbtn from "../components/Signup";
 import Logo from "../images/kakaoTalk_20200806_202115751.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import AuthenticationService from "../components/AuthenticationService"
+import AuthenticationService from "../components/AuthenticationService";
 
 class Login extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const account = event.target.account.value;
     const password = event.target.password.value;
-    AuthenticationService
-        .executeJwtAuthenticationService(account, password)
-        .then((response) => {
-        AuthenticationService.registerSuccessfulLoginForJwt(account,response.data);
+    AuthenticationService.executeJwtAuthenticationService(account, password)
+      .then((response) => {
+        console.log(response.data);
+        AuthenticationService.registerSuccessfulLoginForJwt(
+          account,
+          response.data
+        );
         this.props.history.push("/");
-    }).catch( (error) =>{
-        this.setState({showSuccessMessage:false});
-        this.setState({hasLoginFailed:true});
+      })
+      .catch((error) => {
+        this.setState({ showSuccessMessage: false });
+        this.setState({ hasLoginFailed: true });
         console.log(error);
-    })
+        alert("문제가 생겼습니다. 근데 이제 원인을 모르는.");
+      });
     /*
     try {
       const token = await axios
