@@ -3,6 +3,7 @@ package com.um.web.controller;
 import com.um.domain.product.Product;
 import com.um.domain.product.ProductRepository;
 import com.um.service.ProductService;
+import com.um.web.dto.ItemCreateDto;
 import com.um.web.dto.ProductCreateDto;
 import com.um.web.dto.ProductResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -24,12 +25,16 @@ public class ProductController {
 
         return productService.findByName(name);
     }
-    // 제품 생성 Test API
+    // 제품 생성 API
     @CrossOrigin
-    @PostMapping("/Product/Test")
-    public int productTest(@RequestBody ProductCreateDto productCreateDto) {
-
-        return productService.create(productCreateDto);
+    @PostMapping("/Product/create")
+    public int productCreate(@RequestBody ProductCreateDto productCreateDto) {
+        return productService.createProduct(productCreateDto);
+    }
+    @CrossOrigin
+    @PostMapping("item/create")
+    public String itemCreate(@RequestBody ItemCreateDto itemCreateDto){
+        return productService.createItem(itemCreateDto);
     }
     // 모든 제품 확인
     @CrossOrigin
