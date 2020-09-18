@@ -137,3 +137,42 @@
 .total-price {
   float: right;
 }
+
+.wrap-selected-opt {
+  max-height: 250px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.select-opt {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  min-height: 48px;
+  padding: 6px 5px 6px 9px;
+  border: 1px solid #ddd;
+  border-top: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.select-opt .opt {
+  padding-top: 1px;
+  padding-right: 10px;
+  color: #777;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.select-opt .amount {
+  width: 102px;
+  white-space: nowrap;
+}
+
+.select-opt .price {
+  width: 98px;
+  text-align: right;
+  color: #777;
+  line-height: 22px;
+  white-space: nowrap;
+}

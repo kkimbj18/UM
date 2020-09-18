@@ -1,10 +1,11 @@
 import React from "react";
 import Nav from "../components/Nav";
 import Header from "../components/Header";
+import Option from "../components/Optionselect";
 import "../css/Itemdetail.css";
 import "../css/Home.css";
 import "../css/App.css";
-import { brand } from "../db";
+import { brand, product } from "../db";
 import { Link } from "react-router-dom";
 
 function getbrand(brand, brandID) {
@@ -77,16 +78,7 @@ class Itemdetail extends React.Component {
                 </h5>
                 <h4 className="yellow-box">UM은 모든 상품 무료 배송입니다.</h4>
               </div>
-              <div className="option-box-cover">
-                <select className="option-box">
-                  <option selected="selected">옵션 선택</option>
-                  <option>블랙</option>
-                </select>
-              </div>
-              <div className="total-price-box">
-                총 합계
-                <span className="total-price">{}원</span>
-              </div>
+              <Option product={this.props.location.state.product}></Option>
               <Link to="/">
                 <input
                   type="submit"
