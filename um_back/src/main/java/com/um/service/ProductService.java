@@ -2,8 +2,11 @@ package com.um.service;
 
 import com.um.domain.brand.Brand;
 import com.um.domain.brand.BrandRepository;
+import com.um.domain.item.Item;
+import com.um.domain.item.ItemRepository;
 import com.um.domain.product.Product;
 import com.um.domain.product.ProductRepository;
+import com.um.web.dto.ItemCreateDto;
 import com.um.web.dto.ProductCreateDto;
 import com.um.web.dto.ProductResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -18,9 +21,25 @@ import java.util.List;
 public class ProductService {
     private final ProductRepository productRepository;
     private final BrandRepository brandRepository;
+    private final ItemRepository itemRepository;
 
     @Transactional
-    public int create(ProductCreateDto productCreateDto)
+    public String createItem(ItemCreateDto itemCreateDto)
+    {
+        Product product = productRepository.findById(itemCreateDto.getProductId())
+                .orElseThrow(() -> new IllegalArgumentException("해당 Product가 없습니다."));
+
+        Item item = itemRepository.save(Item.builder()
+                .product(product)
+                .size(itemCreateDto.getSize())
+                .color(itemCreateDto.getColor())
+                .remain(0)
+                .extraPrice(itemCreateDto.getExtraPrice())
+                .build());
+        return "item 생성 완료.";
+    }
+    @Transactional
+    public int createProduct(ProductCreateDto productCreateDto)
     {
         Brand brand = brandRepository.findById(productCreateDto.getBrandId())
                 .orElseThrow(() -> new IllegalArgumentException(
