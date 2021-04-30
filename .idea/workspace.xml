@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="659e9fae-be50-4b83-8774-10c356ceec22" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/um_back/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/um_back/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/um_back/src/main/java/com/um/config/Swagger2Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/um_back/src/main/java/com/um/config/Swagger2Config.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
