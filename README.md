@@ -15,6 +15,9 @@
 
 ### 2. 개발 환경 및 기술
 
+**IDE**
+- IntelliJ
+
 **협업**
 - Burndown Chart
 - Github
